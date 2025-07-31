@@ -15,18 +15,19 @@ MonoBehaviour:
   mMovementSpeed: 20
   mJumpForce: 30
   mJumpCutMultiplier: 1.5
-  mGravityStrength: 50
-  mBufferedJumpTime: 0.3
-  mCoyoteTimeFrame: 0.3
-  mHorizontalGroundDeceleration: 100
+  mGravityStrength: 70
+  mBufferedJumpTime: 0.2
+  mCoyoteTimeFrame: 0.2
+  mHorizontalGroundDeceleration: 150
   mHorizontalAirDeceleration: 100
-  mHorizontalGroundAcceleration: 200
+  mHorizontalGroundAcceleration: 100
   mHorizontalAirAcceleration: 100
-  mVerticalAcceleration: 70
-  mVerticalDeceleration: 30
-  mTerminalVelocity: 80
-  mCircleCastRadius: 1
-  mRaycastDistance: 0.1
+  mVerticalAcceleration: 120
+  mVerticalDeceleration: 60
+  mGroundingForce: -0.1
+  mTerminalVelocity: 50
+  mRaycastDistance: 0.05
   mHittableLayers:
     serializedVersion: 2
     m_Bits: 4096
+  mPlayerCapsuleOffset: 0.04
