@@ -70,9 +70,9 @@ public class PlayerMovement3D : MonoBehaviour
     {
         CheckForCollisions();
         HandleXDirection();
-        HandleJump();
         HandleZDirection();
-        //HandleGravity();
+        HandleJump();
+        HandleGravity();
 
         mRigidbody.linearVelocity = mFrameVelocityVector;
     }
@@ -87,8 +87,11 @@ public class PlayerMovement3D : MonoBehaviour
             mPlayerData.RaycastDistance,
             mPlayerData.HittableLayers);
 
+        Debug.DrawRay(mCapsuleCollider.bounds.center, Vector3.down, Color.magenta);
+
         if (hit)
         {
+            Debug.Log("hit");
             HandleIntersection(groundHit);
 
             if (!mPlayerData.IsGrounded && IsVerticalIntersection(groundHit))
@@ -118,8 +121,12 @@ public class PlayerMovement3D : MonoBehaviour
             mPlayerData.RaycastDistance,
             mPlayerData.HittableLayers);
 
+        Debug.DrawRay(mCapsuleCollider.bounds.center, Vector3.up, Color.yellow);
+
         if (hit)
         {
+            Debug.Log("hit");
+
             HandleIntersection(ceilingHit);
             if (IsVerticalIntersection(ceilingHit))
             {
