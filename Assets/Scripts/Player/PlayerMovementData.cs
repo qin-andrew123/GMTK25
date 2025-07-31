@@ -6,11 +6,11 @@ public class PlayerMovementData : ScriptableObject
     [Header("Movement Information")]
     [SerializeField, Tooltip("How fast our character moves")]
     private float mMovementSpeed;
-    [SerializeField, Tooltip("How intense is our jump")]
+    [SerializeField, Tooltip("Force used to make our character jump up, higher is further up")]
     private float mJumpForce;
-    [SerializeField, Tooltip("How much is our jump cut by if we short jump")]
-    private float mJumpCutMultiplier;
-    [SerializeField]
+    [SerializeField, Tooltip("How much is our jump cut by if we short jump. Higher is even shorter jump")]
+    private float mJumpCutMultiplier = 1.5f;
+    [SerializeField, Tooltip("How strong is our default gravity")]
     private float mGravityStrength;
     private bool bIsGrounded = true;
     private bool bIsJumpBuffered = false;
@@ -32,8 +32,10 @@ public class PlayerMovementData : ScriptableObject
     private float mHorizontalAirAcceleration;
     [SerializeField, Tooltip("Acceleration for when we are falling in air")]
     private float mVerticalAcceleration;
-    [SerializeField, Tooltip("Acceleration for when we want to slow our falling in air")]
+    [SerializeField, Tooltip("Deceleration for when we want to slow our falling in air")]
     private float mVerticalDeceleration;
+    [SerializeField, Tooltip("Normal Force that acts on the player when we are on the ground")]
+    private float mGroundingForce = -0.1f;
     [SerializeField, Tooltip("The Terminal Velocity that you can go. This is a velocity not an acceleration")]
     private float mTerminalVelocity;
 
@@ -41,7 +43,7 @@ public class PlayerMovementData : ScriptableObject
     public float MovementSpeed
     {
         get { return mMovementSpeed; }
-        set { mJumpForce = value; }
+        set { mMovementSpeed = value; }
     }
     public float JumpForce
     {
@@ -120,6 +122,10 @@ public class PlayerMovementData : ScriptableObject
     {
         get { return mVerticalDeceleration; }
     }
+    public float GroundingForce
+    {
+        get { return mGroundingForce; }
+    }
     public float TerminalVelocity
     {
         get { return mTerminalVelocity; }
@@ -129,6 +135,8 @@ public class PlayerMovementData : ScriptableObject
     private float mRaycastDistance = 1.0f;
     [SerializeField, Tooltip("What layers do we want to check?")]
     private LayerMask mHittableLayers;
+    [SerializeField, Tooltip("Adding a slight offset to the player capsule to resolve any jitter that may occur")]
+    private float mPlayerCapsuleOffset = 0.02f;
     public float RaycastDistance
     {
         get { return mRaycastDistance; }
@@ -136,5 +144,9 @@ public class PlayerMovementData : ScriptableObject
     public LayerMask HittableLayers
     {
         get { return mHittableLayers; }
+    }
+    public float PlayerCapsuleOffset
+    {
+        get { return mPlayerCapsuleOffset; }
     }
 }
