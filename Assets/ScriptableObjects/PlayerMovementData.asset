@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36cb273c5c244e64093ac4b077b0345f, type: 3}
+  m_Name: PlayerMovementData
+  m_EditorClassIdentifier: 
+  mMovementSpeed: 20
+  mJumpForce: 30
+  mJumpCutMultiplier: 1.5
+  mGravityStrength: 50
+  mBufferedJumpTime: 0.3
+  mCoyoteTimeFrame: 0.3
+  mHorizontalGroundDeceleration: 100
+  mHorizontalAirDeceleration: 100
+  mHorizontalGroundAcceleration: 200
+  mHorizontalAirAcceleration: 100
+  mVerticalAcceleration: 70
+  mVerticalDeceleration: 30
+  mTerminalVelocity: 80
+  mCircleCastRadius: 1
+  mRaycastDistance: 0.1
+  mHittableLayers:
+    serializedVersion: 2
+    m_Bits: 4096
