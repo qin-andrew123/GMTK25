@@ -1,13 +1,16 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.Timeline;
-using System;
+using UnityEngine.VFX;
 
 public class PlayerAbilities : MonoBehaviour
 {
     [SerializeField]
+    private VisualEffect mGlitchVFX;
+    [SerializeField]
     private float mAbilityCooldown;
     private bool bHasTriggeredAbility = false;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,8 +23,10 @@ public class PlayerAbilities : MonoBehaviour
         float abilityInput = Input.GetAxisRaw("Ability1");
         if ((abilityInput >= 1.0f) && !bHasTriggeredAbility)
         {
-            Glitch();
+            Debug.Log("Triggered Ability");
+
             bHasTriggeredAbility = true;
+            Glitch();
         }
     }
 
@@ -41,6 +46,7 @@ public class PlayerAbilities : MonoBehaviour
     private IEnumerator AbilityCooldown()
     {
         yield return new WaitForSeconds(mAbilityCooldown);
+        Debug.Log("End of Cooldown");
         bHasTriggeredAbility = false;
     }
 

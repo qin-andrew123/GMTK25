@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -7,11 +8,11 @@ public class GlitchableObject : MonoBehaviour
     private TextMeshPro mInteractText;
     void Awake()
     {
-        GlitchManager.Instance.AddGlitchableObject(this);
+
     }
     private void OnEnable()
     {
-        GlitchManager.Instance.AddGlitchableObject(this);
+        StartCoroutine(AddSelfToManager());
     }
     private void OnDisable()
     {
@@ -28,5 +29,11 @@ public class GlitchableObject : MonoBehaviour
     public void GlitchEffect()
     {
         Debug.Log("This is a glitch effect");
+    }
+
+    private IEnumerator AddSelfToManager()
+    {
+        yield return new WaitUntil(() => GlitchManager.Instance != null);
+        GlitchManager.Instance.AddGlitchableObject(this);
     }
 }
