@@ -23,6 +23,10 @@ public class PlayerMovement3D : MonoBehaviour
     private float height = 0.0f;
     // TODO: Slope Handling
     // TODO: Wall Jumping/sliding? Maybe? 
+
+    [SerializeField]
+    private AudioEvent mJumpSFX;
+
     void Start()
     {
         if (!mPlayerData)
@@ -193,6 +197,7 @@ public class PlayerMovement3D : MonoBehaviour
         mFrameVelocityVector.y = mPlayerData.JumpForce;
 
         // TODO: Event here for sfx/vfx
+        mJumpSFX?.Play2DSound();
     }
 
     private void HandleXDirection()
