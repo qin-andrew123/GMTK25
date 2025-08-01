@@ -1,7 +1,6 @@
 using Unity.Burst.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Rendering.HighDefinition;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -16,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D mRigidbody2D;
     private CapsuleCollider2D mCapsuleCollider;
     private bool bHasHitWall = false;
+    private bool bWasLastHorizontalDirectionPositive = false;
     private float mTimeLeftGrounded = float.MinValue;
     private float mTimeOfJump = float.MinValue;
     private Vector2 mFrameVelocityVector;
@@ -70,50 +70,36 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector2 beforeCollision = mFrameVelocityVector;
-
-        CheckForVerticalCollisions();
+        CheckForCollisions();
+        HandleXDirection();
         HandleJump();
         HandleGravity();
 
-        mRigidbody2D.linearVelocityY = mFrameVelocityVector.y;
-
-        CheckForHorizontalCollisions();
-        HandleXDirection();
-        mRigidbody2D.linearVelocityX = mFrameVelocityVector.x;
+        mRigidbody2D.linearVelocity = mFrameVelocityVector;
     }
-    private void CheckForVerticalCollisions()
-    {
-        Vector2 verticalVector = new Vector2(0, mRigidbody2D.linearVelocityY);
-        verticalVector.Normalize();
 
-        RaycastHit2D hit = Physics2D.CapsuleCast(
+    private void CheckForCollisions()
+    {
+        RaycastHit2D groundHit = Physics2D.CapsuleCast(
             mCapsuleCollider.bounds.center,
             mCapsuleCollider.size,
             mCapsuleCollider.direction,
             0,
-            verticalVector,
+            Vector2.down,
             mPlayerData.RaycastDistance,
             mPlayerData.HittableLayers);
 
-        if (hit)
+        if (groundHit)
         {
-            HandleIntersection(hit);
+            HandleIntersection(groundHit);
 
-            if (!mPlayerData.IsGrounded && IsVerticalIntersection(hit))
+            if (!mPlayerData.IsGrounded && IsVerticalIntersection(groundHit))
             {
-                if (verticalVector.y < 0)
-                {
-                    mPlayerData.IsGrounded = true;
-                    mPlayerData.IsCoyoteTimeUsable = true;
-                    mPlayerData.IsBufferedJumpUsable = true;
-                    mPlayerData.EndedJumpEarly = false;
-                    // TODO: Can hook up events here for vfx etc
-                }
-                else if (verticalVector.y > 0)
-                {
-                    mFrameVelocityVector.y = Mathf.Min(0, mRigidbody2D.linearVelocityY);
-                }
+                mPlayerData.IsGrounded = true;
+                mPlayerData.IsCoyoteTimeUsable = true;
+                mPlayerData.IsBufferedJumpUsable = true;
+                mPlayerData.EndedJumpEarly = false;
+                // TODO: Can hook up events here for vfx etc
             }
         }
         else
@@ -125,33 +111,22 @@ public class PlayerMovement : MonoBehaviour
                 // TODO: Another event here on leaving 
             }
         }
-    }
-    private void CheckForHorizontalCollisions()
-    {
-        Vector2 horizontalVector = new Vector2(mRigidbody2D.linearVelocityX, 0);
-        horizontalVector.Normalize();
 
-        RaycastHit2D hit = Physics2D.CapsuleCast(
+        RaycastHit2D ceilingHit = Physics2D.CapsuleCast(
             mCapsuleCollider.bounds.center,
             mCapsuleCollider.size,
             mCapsuleCollider.direction,
             0,
-            horizontalVector,
+            Vector2.up,
             mPlayerData.RaycastDistance,
             mPlayerData.HittableLayers);
-
-        if (hit)
+        if (ceilingHit)
         {
-            HandleIntersection(hit);
-            if (IsHorizontalIntersection(hit))
+            HandleIntersection(ceilingHit);
+            if (IsVerticalIntersection(ceilingHit))
             {
-                mFrameInput.mInputVector.x = 0;
-                bHasHitWall = true;
+                mFrameVelocityVector.y = Mathf.Min(0, mRigidbody2D.linearVelocityY);
             }
-        }
-        else
-        {
-            bHasHitWall = false;
         }
     }
     private bool IsVerticalIntersection(RaycastHit2D hit)
@@ -169,6 +144,22 @@ public class PlayerMovement : MonoBehaviour
         {
             Vector2 correction = hit.normal * (intersectPenetration - mPlayerData.PlayerCapsuleOffset);
             mRigidbody2D.transform.position += (Vector3)correction;
+        }
+
+        if (IsHorizontalIntersection(hit))
+        {
+            bWasLastHorizontalDirectionPositive = mFrameInput.mInputVector.x > 0;
+            mFrameInput.mInputVector.x = 0;
+            bHasHitWall = true;
+        }
+        else
+        {
+            // if we haven't hit a wall and we are going in the opposite direction as to the last horizontal direction, we set bhashitwall false
+            bool bIsCurrentInputFramePositiveX = mFrameInput.mInputVector.x > 0;
+            if (bIsCurrentInputFramePositiveX != bWasLastHorizontalDirectionPositive)
+            {
+                bHasHitWall = false;
+            }
         }
     }
     private void HandleJump()
