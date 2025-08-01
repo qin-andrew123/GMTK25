@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36cb273c5c244e64093ac4b077b0345f, type: 3}
   m_Name: PlayerMovementData
   m_EditorClassIdentifier: 
-  mMovementSpeed: 20
-  mJumpForce: 5
+  mMovementSpeed: 15
+  mJumpForce: 8
   mJumpCutMultiplier: 1.5
   mGravityStrength: 10
   mBufferedJumpTime: 0.2
