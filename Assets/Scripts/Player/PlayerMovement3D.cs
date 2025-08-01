@@ -91,7 +91,6 @@ public class PlayerMovement3D : MonoBehaviour
 
         if (hit)
         {
-            Debug.Log("hit");
             HandleIntersection(groundHit);
 
             if (!mPlayerData.IsGrounded && IsVerticalIntersection(groundHit))
@@ -125,8 +124,6 @@ public class PlayerMovement3D : MonoBehaviour
 
         if (hit)
         {
-            Debug.Log("hit");
-
             HandleIntersection(ceilingHit);
             if (IsVerticalIntersection(ceilingHit))
             {
