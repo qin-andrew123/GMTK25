@@ -5,26 +5,23 @@ using UnityEngine.VFX;
 
 public class PlayerAbilities : MonoBehaviour
 {
-    private CapsuleCollider mCapsuleCollider;
-
-    [SerializeField] private float mMaxGlitchRadius;
-    [SerializeField] private float mAbilityCooldown;
-    [SerializeField] private VisualEffect mGlitchVFX;
+    [SerializeField]
+    private VisualEffect mGlitchVFX;
+    [SerializeField]
+    private float mAbilityCooldown;
     private bool bHasTriggeredAbility = false;
-    
-    
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        mCapsuleCollider = GetComponent<CapsuleCollider>();
     }
 
     // Update is called once per frame
     void Update()
     {
         float abilityInput = Input.GetAxisRaw("Ability1");
-        if(!bHasTriggeredAbility && (abilityInput >= 1.0f))
+        if ((abilityInput >= 1.0f) && !bHasTriggeredAbility)
         {
             Debug.Log("Triggered Ability");
 
@@ -35,32 +32,15 @@ public class PlayerAbilities : MonoBehaviour
 
     private void Glitch()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, (mCapsuleCollider.radius + mMaxGlitchRadius));
-        for(int i=0; i<colliders.Length; i++) 
+        GlitchableObject Target = GlitchManager.Instance.GetBestTarget();
+        if (!Target)
         {
-            Collider collider = colliders[i];
-            if (collider.CompareTag("GlitchableObject"))
-            {
-                // Success glitch vfx
-                mGlitchVFX.Play();
-
-                // Trigger success glitch
-                Debug.Log("Glitch!");
-                GlitchableObject glitchableObject = collider.GetComponent<GlitchableObject>();
-                if(glitchableObject)
-                {
-                    glitchableObject.TriggerGlitch();
-                }
-
-                // Begin cooldown
-                StartCoroutine(AbilityCooldown());
-                return;
-            }
+            Debug.LogWarning("PlayerAbilities.Glitch(): Target Object is null.");
+            return;
         }
 
-        // failure glitch vfx
-        Debug.Log("No Glitch");
-        bHasTriggeredAbility = false;
+        Target.GlitchEffect();
+        StartCoroutine(AbilityCooldown());
     }
 
     private IEnumerator AbilityCooldown()

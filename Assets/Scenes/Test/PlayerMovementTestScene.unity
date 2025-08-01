@@ -1167,7 +1167,7 @@ Transform:
   m_GameObject: {fileID: 1633510250}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 5.2, z: 0}
+  m_LocalPosition: {x: -4.24, y: 2.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1185,7 +1185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cab55f35d95a304e9849dc0b879eed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mPlayerData: {fileID: 11400000, guid: 074376324edf9854e940262b474ea324, type: 2}
+  mPlayerData: {fileID: 11400000, guid: d8f47494ef371674b98142f5ca6552a4, type: 2}
 --- !u!70 &1633510255
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
