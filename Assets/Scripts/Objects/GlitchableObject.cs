@@ -23,6 +23,6 @@ public class GlitchableObject : MonoBehaviour
     public void TriggerGlitch()
     {
         // triggering a glitch sends you to a certain scene
-        SceneManager.LoadScene(mSceneToLoad);
+        //SceneManager.LoadScene(mSceneToLoad);
     }
 }

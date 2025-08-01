@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.Timeline;
+using UnityEngine.VFX;
 
 public class PlayerAbilities : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class PlayerAbilities : MonoBehaviour
 
     [SerializeField] private float mMaxGlitchRadius;
     [SerializeField] private float mAbilityCooldown;
+    [SerializeField] private VisualEffect mGlitchVFX;
     private bool bHasTriggeredAbility = false;
     
     
@@ -40,6 +42,7 @@ public class PlayerAbilities : MonoBehaviour
             if (collider.CompareTag("GlitchableObject"))
             {
                 // Success glitch vfx
+                mGlitchVFX.Play();
 
                 // Trigger success glitch
                 Debug.Log("Glitch!");
