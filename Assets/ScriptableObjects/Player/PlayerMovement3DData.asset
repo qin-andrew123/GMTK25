@@ -24,9 +24,9 @@ MonoBehaviour:
   mHorizontalAirAcceleration: 100
   mVerticalAcceleration: 90
   mVerticalDeceleration: 50
-  mGroundingForce: -0.1
+  mGroundingForce: 0
   mTerminalVelocity: 20
-  mRaycastDistance: 0.9
+  mRaycastDistance: 0.7
   mHittableLayers:
     serializedVersion: 2
     m_Bits: 4096
