@@ -1,29 +1,24 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.Timeline;
+using System;
 
 public class PlayerAbilities : MonoBehaviour
 {
-    private CharacterController mCharacterController;
-
     [SerializeField]
-    private float mMaxGlitchRadius;
     private float mAbilityCooldown;
     private bool bHasTriggeredAbility = false;
-    
-    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        mCharacterController = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
         float abilityInput = Input.GetAxisRaw("Ability1");
-        if((abilityInput >= 1.0f) && !bHasTriggeredAbility)
+        if ((abilityInput >= 1.0f) && !bHasTriggeredAbility)
         {
             Glitch();
             bHasTriggeredAbility = true;
@@ -32,25 +27,15 @@ public class PlayerAbilities : MonoBehaviour
 
     private void Glitch()
     {
-        // Check if in the Radius of a glitchable object via spherecast?
-        RaycastHit raycastHit;
-
-        Vector3 position = mCharacterController.center;
-        bool hit = Physics.SphereCast(position, mCharacterController.height / 2.0f, transform.forward, out raycastHit, mMaxGlitchRadius);
-        if(raycastHit.collider.CompareTag("GlitchableObject"))
+        GlitchableObject Target = GlitchManager.Instance.GetBestTarget();
+        if (!Target)
         {
-            // Trigger success glitch
-
-            // Success glitch vfx
-
-            // Begin cooldown
-            StartCoroutine(AbilityCooldown());
-        }
-        else
-        {
-            // failure glitch vfx
+            Debug.LogWarning("PlayerAbilities.Glitch(): Target Object is null.");
+            return;
         }
 
+        Target.GlitchEffect();
+        StartCoroutine(AbilityCooldown());
     }
 
     private IEnumerator AbilityCooldown()
