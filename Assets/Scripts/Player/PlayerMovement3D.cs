@@ -1,3 +1,4 @@
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class PlayerMovement3D : MonoBehaviour
@@ -12,13 +13,14 @@ public class PlayerMovement3D : MonoBehaviour
     private PlayerMovementData mPlayerData;
     private Rigidbody mRigidbody;
     private CapsuleCollider mCapsuleCollider;
-    private bool bHasHitWall = false;
-    private bool bWasLastHorizontalDirectionPositive = false;
+    private bool bHasZHitWall = false;
+    private bool bHasXHitWall = false;
     private float mTimeLeftGrounded = float.MinValue;
     private float mTimeOfJump = float.MinValue;
     private Vector3 mFrameVelocityVector;
     private FrameInput mFrameInput;
-
+    private float halfHeight = 0.0f;
+    private float height = 0.0f;
     // TODO: Slope Handling
     // TODO: Wall Jumping/sliding? Maybe? 
     void Start()
@@ -48,6 +50,9 @@ public class PlayerMovement3D : MonoBehaviour
             Debug.LogAssertion("There is no CapsuleCollider attached to Player GameObject.");
             return;
         }
+
+        height = Mathf.Max(mCapsuleCollider.height, mCapsuleCollider.radius * 2f);
+        halfHeight = height / 2.0f;
     }
 
     void Update()
@@ -68,38 +73,57 @@ public class PlayerMovement3D : MonoBehaviour
 
     private void FixedUpdate()
     {
-        CheckForCollisions();
-        HandleXDirection();
-        HandleZDirection();
+        // Grav First
+        
         HandleJump();
         HandleGravity();
+        HandleXDirection();
+        HandleZDirection();
+        HandleCollision();
 
-        mRigidbody.linearVelocity = mFrameVelocityVector;
+        Vector3 calculatedMove = mFrameVelocityVector * Time.fixedDeltaTime;
+        mRigidbody.MovePosition(mRigidbody.position + calculatedMove);
     }
 
-    private void CheckForCollisions()
+    private void HandleCollision()
     {
-        RaycastHit groundHit;
-        bool hit = Physics.Raycast(
-            mCapsuleCollider.bounds.center,
-            Vector3.down,
-            out groundHit,
-            mPlayerData.RaycastDistance,
-            mPlayerData.HittableLayers);
-
-        Debug.DrawRay(mCapsuleCollider.bounds.center, Vector3.down, Color.magenta);
-
-        if (hit)
+        Vector3 DirectionVector = mFrameVelocityVector;
+        DirectionVector.Normalize();
+        
+        if(DirectionVector == Vector3.zero)
         {
-            HandleIntersection(groundHit);
+            DirectionVector = Vector3.down;
+        }
 
-            if (!mPlayerData.IsGrounded && IsVerticalIntersection(groundHit))
+        Vector3 pointOne = mCapsuleCollider.bounds.center + mCapsuleCollider.transform.up * halfHeight;
+        Vector3 pointTwo = mCapsuleCollider.bounds.center - mCapsuleCollider.transform.up * halfHeight;
+        Physics.CapsuleCast(
+                    pointOne,
+                    pointTwo,
+                    mCapsuleCollider.radius,
+                    DirectionVector,
+                    out RaycastHit hit,
+                    mPlayerData.RaycastDistance,
+                    mPlayerData.HittableLayers);
+        if (hit.collider != null)
+        {
+            HandleIntersection(hit);
+
+            if (Vector3.Dot(hit.normal, Vector3.up) > 0.5f)
             {
-                mPlayerData.IsGrounded = true;
-                mPlayerData.IsCoyoteTimeUsable = true;
-                mPlayerData.IsBufferedJumpUsable = true;
-                mPlayerData.EndedJumpEarly = false;
-                // TODO: Can hook up events here for vfx etc
+                if(!mPlayerData.IsGrounded)
+                {
+                    mPlayerData.IsGrounded = true;
+                    mPlayerData.IsCoyoteTimeUsable = true;
+                    mPlayerData.IsBufferedJumpUsable = true;
+                    mPlayerData.EndedJumpEarly = false;
+
+                    mFrameVelocityVector.y = 0;
+                }
+            }
+            else 
+            {
+                mFrameVelocityVector = Vector3.ProjectOnPlane(mFrameVelocityVector, hit.normal);
             }
         }
         else
@@ -112,58 +136,90 @@ public class PlayerMovement3D : MonoBehaviour
             }
         }
 
-        RaycastHit ceilingHit;
-        hit = Physics.Raycast(
-            mCapsuleCollider.bounds.center,
-            Vector3.down,
-            out ceilingHit,
+    }
+    private void CheckForXCollisions()
+    {
+        Vector3 xVector = new Vector3(mRigidbody.linearVelocity.x, 0, 0);
+        xVector.Normalize();
+
+        Vector3 capsuleCenter = mCapsuleCollider.bounds.center;
+        Vector3 pointTo = capsuleCenter + xVector * mPlayerData.RaycastDistance;
+        Physics.CapsuleCast(
+            capsuleCenter,
+            pointTo,
+            mCapsuleCollider.radius,
+            xVector,
+            out RaycastHit hit,
             mPlayerData.RaycastDistance,
             mPlayerData.HittableLayers);
-
-        Debug.DrawRay(mCapsuleCollider.bounds.center, Vector3.up, Color.yellow);
-
-        if (hit)
+        if (hit.collider != null)
         {
-            HandleIntersection(ceilingHit);
-            if (IsVerticalIntersection(ceilingHit))
+            HandleIntersection(hit);
+            if (IsXIntersection(hit))
             {
-                mFrameVelocityVector.y = Mathf.Min(0, mRigidbody.linearVelocity.y);
+                mFrameInput.mInputVector.x = 0;
+                bHasXHitWall = true;
             }
-        }
-    }
-    private bool IsVerticalIntersection(RaycastHit hit)
-    {
-        return (hit.normal.x == 0) && (hit.normal.y != 0);
-    }
-    private bool IsHorizontalIntersection(RaycastHit hit)
-    {
-        return (hit.normal.x != 0) && (hit.normal.y == 0);
-    }
-    private void HandleIntersection(RaycastHit hit)
-    {
-        float intersectPenetration = mPlayerData.RaycastDistance - hit.distance;
-        if (intersectPenetration > mPlayerData.PlayerCapsuleOffset)
-        {
-            Vector2 correction = hit.normal * (intersectPenetration - mPlayerData.PlayerCapsuleOffset);
-            mRigidbody.transform.position += (Vector3)correction;
-        }
-
-        if (IsHorizontalIntersection(hit))
-        {
-            bWasLastHorizontalDirectionPositive = mFrameInput.mInputVector.x > 0;
-            mFrameInput.mInputVector.x = 0;
-            bHasHitWall = true;
         }
         else
         {
-            // if we haven't hit a wall and we are going in the opposite direction as to the last horizontal direction, we set bhashitwall false
-            bool bIsCurrentInputFramePositiveX = mFrameInput.mInputVector.x > 0;
-            if (bIsCurrentInputFramePositiveX != bWasLastHorizontalDirectionPositive)
-            {
-                bHasHitWall = false;
-            }
+            bHasXHitWall = false;
         }
     }
+    private void CheckForZCollisions()
+    {
+        Vector3 zVector = new Vector3(0, 0, mRigidbody.linearVelocity.z);
+        zVector.Normalize();
+
+        Vector3 capsuleCenter = mCapsuleCollider.bounds.center;
+        Vector3 pointTo = capsuleCenter + zVector * mPlayerData.RaycastDistance;
+        Physics.CapsuleCast(
+            capsuleCenter,
+            pointTo,
+            mCapsuleCollider.radius,
+            zVector,
+            out RaycastHit hit,
+            mPlayerData.RaycastDistance,
+            mPlayerData.HittableLayers);
+        if (hit.collider != null)
+        {
+            HandleIntersection(hit);
+            if (IsZIntersection(hit))
+            {
+                mFrameInput.mInputVector.z = 0;
+                bHasZHitWall = true;
+            }
+        }
+        else
+        {
+            bHasZHitWall = false;
+        }
+    }
+
+    private bool IsXIntersection(RaycastHit hit)
+    {
+        return (hit.normal.x != 0) && (hit.normal.y == 0) && (hit.normal.z == 0);
+    }
+    private bool IsYIntersection(RaycastHit hit)
+    {
+        return (hit.normal.x == 0) && (hit.normal.y != 0) && (hit.normal.z == 0);
+    }
+    private bool IsZIntersection(RaycastHit hit)
+    {
+        return (hit.normal.x == 0) && (hit.normal.y == 0) && (hit.normal.z != 0);
+    }
+    private void HandleIntersection(RaycastHit hit)
+    {
+        float intersectPenetration = hit.distance - mPlayerData.PlayerCapsuleOffset;
+        if (intersectPenetration < 0)
+        {
+            intersectPenetration = 0;
+            
+        }
+        Vector3 correction = hit.normal * (intersectPenetration);
+        mRigidbody.transform.position += correction;
+    }
+
     private void HandleJump()
     {
         if (!mPlayerData.EndedJumpEarly &&
@@ -214,15 +270,8 @@ public class PlayerMovement3D : MonoBehaviour
     {
         if (mFrameInput.mInputVector.x == 0)
         {
-            if (bHasHitWall)
-            {
-                mFrameVelocityVector.x = 0;
-            }
-            else
-            {
-                float deceleration = mPlayerData.IsGrounded ? mPlayerData.GroundDeceleration : mPlayerData.AirDeceleration;
-                mFrameVelocityVector.x = Mathf.MoveTowards(mFrameVelocityVector.x, 0, deceleration * Time.fixedDeltaTime);
-            }
+            float deceleration = mPlayerData.IsGrounded ? mPlayerData.GroundDeceleration : mPlayerData.AirDeceleration;
+            mFrameVelocityVector.x = Mathf.MoveTowards(mFrameVelocityVector.x, 0, deceleration * Time.fixedDeltaTime);
         }
         else
         {
@@ -235,15 +284,8 @@ public class PlayerMovement3D : MonoBehaviour
     {
         if (mFrameInput.mInputVector.z == 0)
         {
-            if (bHasHitWall)
-            {
-                mFrameVelocityVector.z = 0;
-            }
-            else
-            {
                 float deceleration = mPlayerData.IsGrounded ? mPlayerData.GroundDeceleration : mPlayerData.AirDeceleration;
                 mFrameVelocityVector.z = Mathf.MoveTowards(mFrameVelocityVector.z, 0, deceleration * Time.fixedDeltaTime);
-            }
         }
         else
         {
@@ -258,7 +300,7 @@ public class PlayerMovement3D : MonoBehaviour
         {
             mFrameVelocityVector.y = mPlayerData.GroundingForce;
         }
-        else
+        else if(!mPlayerData.IsGrounded)
         {
             float gravityEffect = mPlayerData.GravityStrength;
 
