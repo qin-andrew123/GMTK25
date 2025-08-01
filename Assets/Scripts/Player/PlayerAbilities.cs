@@ -39,10 +39,15 @@ public class PlayerAbilities : MonoBehaviour
             Collider collider = colliders[i];
             if (collider.CompareTag("GlitchableObject"))
             {
+                // Success glitch vfx
+
                 // Trigger success glitch
                 Debug.Log("Glitch!");
-
-                // Success glitch vfx
+                GlitchableObject glitchableObject = collider.GetComponent<GlitchableObject>();
+                if(glitchableObject)
+                {
+                    glitchableObject.TriggerGlitch();
+                }
 
                 // Begin cooldown
                 StartCoroutine(AbilityCooldown());

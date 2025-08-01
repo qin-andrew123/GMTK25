@@ -642,7 +642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 888507136c4ccb74fb6f943c139db692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mMaxGlitchRadius: 4
+  mMaxGlitchRadius: 1
   mAbilityCooldown: 5
 --- !u!1 &531889706
 GameObject:
@@ -657,6 +657,7 @@ GameObject:
   - component: {fileID: 531889708}
   - component: {fileID: 531889707}
   - component: {fileID: 531889711}
+  - component: {fileID: 531889712}
   m_Layer: 0
   m_Name: Glitchable Object
   m_TagString: GlitchableObject
@@ -780,6 +781,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &531889712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531889706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1be93beae414c374babb7ed89fb10f12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mSceneToLoad: 2.5D_Test
 --- !u!1 &690510974
 GameObject:
   m_ObjectHideFlags: 0
