@@ -10,10 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36cb273c5c244e64093ac4b077b0345f, type: 3}
-  m_Name: PlayerMovementData
+  m_Name: PlayerMovement3DData
   m_EditorClassIdentifier: 
   mMovementSpeed: 20
+<<<<<<< Updated upstream:Assets/ScriptableObjects/Player/PlayerMovementData.asset
   mJumpForce: 30
+=======
+  mJumpForce: 10
+>>>>>>> Stashed changes:Assets/ScriptableObjects/Player/PlayerMovement3DData.asset
   mJumpCutMultiplier: 1.5
   mGravityStrength: 70
   mBufferedJumpTime: 0.2
@@ -24,10 +28,14 @@ MonoBehaviour:
   mHorizontalAirAcceleration: 100
   mVerticalAcceleration: 120
   mVerticalDeceleration: 60
-  mGroundingForce: -0.1
+  mGroundingForce: 0
   mTerminalVelocity: 50
+<<<<<<< Updated upstream:Assets/ScriptableObjects/Player/PlayerMovementData.asset
   mRaycastDistance: 0.05
+=======
+  mRaycastDistance: 0.7
+>>>>>>> Stashed changes:Assets/ScriptableObjects/Player/PlayerMovement3DData.asset
   mHittableLayers:
     serializedVersion: 2
     m_Bits: 4096
-  mPlayerCapsuleOffset: 0.04
+  mPlayerCapsuleOffset: 0.7
