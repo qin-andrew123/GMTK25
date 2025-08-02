@@ -33,6 +33,7 @@ public class PlayerAbilities : MonoBehaviour
 
             bHasTriggeredGlitch = true;
             Glitch();
+            StartCoroutine(AbilityCooldown());
         }
         else if((grabInput >= 1.0f) && !bHasTriggeredGrab)
         {
@@ -44,16 +45,14 @@ public class PlayerAbilities : MonoBehaviour
 
     private void Glitch()
     {
-        GlitchableObject Target = GlitchManager.Instance.GetBestTarget();
+        GlitchableObject Target = GlobalVariables.Instance.GlitchManager.GetBestTarget();
         if (!Target)
         {
             Debug.LogWarning("PlayerAbilities.Glitch(): Target Object is null.");
             bHasTriggeredGlitch = false;
             return;
         }
-
         Target.GlitchEffect();
-        StartCoroutine(GlitchCooldown());
     }
 
     private void GrabItem()
