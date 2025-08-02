@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FlagPole : MonoBehaviour
 {
@@ -30,6 +31,8 @@ public class FlagPole : MonoBehaviour
 
                 Debug.Log("Win Level 1!");
                 Debug.Log("Trigger End Glitch Cutscene");
+                SceneManager.LoadScene("LevelCompleteScene");
+
             }
             else
             {
