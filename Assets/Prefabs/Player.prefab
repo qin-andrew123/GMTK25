@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 1391721772361424073}
   - component: {fileID: 6550191944949831165}
   - component: {fileID: 3406916101746784844}
+  - component: {fileID: 2458851667931053194}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -310,3 +311,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2458851667931053194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4159708787385473827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ecb204210cfddf43b4c990c8173e744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mGrassFootsteps: {fileID: 11400000, guid: 9220a31120c53e74c9932aabff76f2e6, type: 2}
+  mGenericFoosteps: {fileID: 11400000, guid: e28a603d321975044b8198d3957bfdfb, type: 2}
+  mLayerMask:
+    serializedVersion: 2
+    m_Bits: 4096
