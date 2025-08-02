@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6307a4bcec1792846ab69a6ecbd6931f, type: 3}
   m_Name: LevelCompleteStinger
   m_EditorClassIdentifier: 
-  mSound: []
+  mSound:
+  - {fileID: 8300000, guid: d58fe262570197d4aacedf7b29ca70e1, type: 3}
   bIsSpatial: 0
   bIsLoop: 0
-  mVolumeScale: 1
+  mVolumeScale: 0.5
   mSpatialBlend: 0
   mMaxDistance: 0
