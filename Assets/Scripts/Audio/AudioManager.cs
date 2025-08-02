@@ -90,14 +90,17 @@ public class AudioManager : MonoBehaviour
         {
             case AudioLevelState.Code:
                 mCodeSource.mute = false;
+                mGameSource.mute = true;
                 mUISource.mute = true;
                 break;
             case AudioLevelState.Game:
                 mCodeSource.mute = false;
+                mGameSource.mute = false;
                 mUISource.mute = false;
                 break;
             case AudioLevelState.UI:
                 mCodeSource.mute = true;
+                mGameSource.mute = true;
                 mUISource.mute = false;
                 break;
         }
