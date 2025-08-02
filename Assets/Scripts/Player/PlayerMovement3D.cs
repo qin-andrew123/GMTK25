@@ -101,7 +101,7 @@ public class PlayerMovement3D : MonoBehaviour
         mRigidbody.MovePosition(mRigidbody.position + calculatedMove);
 
         mAnimator.SetFloat("Speed", mFrameInput.mInputVector.magnitude);
-
+        
         if (mFrameInput.mInputVector.x < 0)
         {
             mSpriteRenderer.flipX = true;
@@ -110,6 +110,8 @@ public class PlayerMovement3D : MonoBehaviour
         {
             mSpriteRenderer.flipX = false;
         }
+        mAnimator.SetBool("isGrounded", mPlayerData.IsGrounded);
+        Debug.Log(mPlayerData.IsGrounded);
     }
 
     private void HandleCollision()
@@ -223,6 +225,7 @@ public class PlayerMovement3D : MonoBehaviour
         mPlayerData.IsBufferedJumpUsable = false;
         mPlayerData.IsCoyoteTimeUsable = false;
         mFrameVelocityVector.y = mPlayerData.JumpForce;
+        mAnimator.SetTrigger("Jump");
 
         // TODO: Event here for sfx/vfx
         mJumpSFX?.Play2DSound();
