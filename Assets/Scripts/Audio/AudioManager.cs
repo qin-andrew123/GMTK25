@@ -31,6 +31,7 @@ public class AudioManager : MonoBehaviour
     {
         if (Instance != null)
         {
+            Instance.SetGlitchLevel(mCurrentGlitchPreset);
             Destroy(gameObject);
             return;
         }

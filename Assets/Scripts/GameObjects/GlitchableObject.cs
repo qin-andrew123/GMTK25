@@ -10,6 +10,8 @@ public class GlitchableObject : MonoBehaviour
     private string mLevelToGlitchTo = "";
     [SerializeField]
     private Transform mLocationToGlitchTo;
+    [SerializeField]
+    private AudioLevelState mAudioLevelState;
     void Awake()
     {
         GlobalVariables.Instance.GlitchManager.AddGlitchableObject(this);
@@ -32,7 +34,7 @@ public class GlitchableObject : MonoBehaviour
         }
         //GlobalVariables.Instance.LevelManager.HandleMovePlayerToNewLevel(mLevelToGlitchTo);
         GlobalVariables.Instance.LevelManager.MovePlayerToPosition(mLocationToGlitchTo);
-        
+        AudioManager.Instance.SetAudioLevelState(mAudioLevelState);
     }
 
     private IEnumerator AddSelfToManager()
