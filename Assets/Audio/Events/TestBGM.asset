@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6307a4bcec1792846ab69a6ecbd6931f, type: 3}
   m_Name: TestBGM
   m_EditorClassIdentifier: 
-  mSound: {fileID: 8300000, guid: 5aa047ee14fa95a4790e5e7b2919d422, type: 3}
+  mSound:
+  - {fileID: 8300000, guid: 6d8fbcbaf92b4294e88cbc9066ea9fbd, type: 3}
   bIsSpatial: 0
   bIsLoop: 1
   mVolumeScale: 1

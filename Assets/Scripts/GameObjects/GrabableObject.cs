@@ -6,6 +6,9 @@ public class GrabableObject : MonoBehaviour
 {
     [SerializeField]
     private TextMeshPro mInteractText;
+    [SerializeField]
+    private bool bGlitchAudio = false;
+
     void Awake()
     {
 
@@ -32,6 +35,10 @@ public class GrabableObject : MonoBehaviour
         transform.localPosition = Vector3.zero;
         ChangeInteractTextStatus(false);
         GrabableObjectManager.Instance.RemoveGrabableObject(this);
+        if (bGlitchAudio)
+        {
+            AudioManager.Instance.SetGlitchLevel(1);
+        }
     }
 
     public void DropEffect()

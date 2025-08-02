@@ -12,7 +12,7 @@ public class PlayerMovement3D : MonoBehaviour
         public bool bIsJumpHeldDown;
     }
     [SerializeField]
-    private PlayerMovementData mPlayerData;
+    public PlayerMovementData mPlayerData;
     private Rigidbody mRigidbody;
     private CapsuleCollider mCapsuleCollider;
     private float mTimeLeftGrounded = float.MinValue;
@@ -48,6 +48,7 @@ public class PlayerMovement3D : MonoBehaviour
 
     public Animator mAnimator;
     public SpriteRenderer mSpriteRenderer;
+    private PlayerFootsteps mFootsteps;
 
     void Start()
     {
@@ -73,6 +74,8 @@ public class PlayerMovement3D : MonoBehaviour
 
         height = Mathf.Max(mCapsuleCollider.height, mCapsuleCollider.radius * 2f);
         halfHeight = height / 2.0f;
+
+        mFootsteps = GetComponent<PlayerFootsteps>();
     }
 
     void Update()
@@ -194,6 +197,11 @@ public class PlayerMovement3D : MonoBehaviour
             {
                 if (!mPlayerData.IsGrounded)
                 {
+                    if (!mPlayerData.IsCoyoteTimeUsable)
+                    {
+                        mFootsteps.PlayFootstep();
+                    }
+
                     mPlayerData.IsGrounded = true;
                     mPlayerData.IsCoyoteTimeUsable = true;
                     mPlayerData.IsBufferedJumpUsable = true;

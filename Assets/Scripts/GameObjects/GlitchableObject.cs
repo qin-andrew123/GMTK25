@@ -8,6 +8,8 @@ public class GlitchableObject : MonoBehaviour
     private TextMeshPro mInteractText;
     [SerializeField]
     private Transform mLocationToGlitchTo;
+    [SerializeField]
+    private AudioLevelState mAudioLevelState;
     void Awake()
     {
         GlobalVariables.Instance.GlitchManager.AddGlitchableObject(this);
