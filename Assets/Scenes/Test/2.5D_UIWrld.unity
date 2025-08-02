@@ -782,7 +782,7 @@ PrefabInstance:
       objectReference: {fileID: 549511798}
     - target: {fileID: 4208998823869429382, guid: 49488fe5793c2204d96fa1442e00ce28, type: 3}
       propertyPath: mLevelToGlitchTo
-      value: 2.5D_CodeWrld
+      value: 2.5D_Test
       objectReference: {fileID: 0}
     - target: {fileID: 4208998823869429382, guid: 49488fe5793c2204d96fa1442e00ce28, type: 3}
       propertyPath: mGlitchableSpawnPointName
@@ -790,7 +790,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6388033232505731264, guid: 49488fe5793c2204d96fa1442e00ce28, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.134325
+      value: 3.47
       objectReference: {fileID: 0}
     - target: {fileID: 6388033232505731264, guid: 49488fe5793c2204d96fa1442e00ce28, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2454,18 +2454,7 @@ MonoBehaviour:
   ZoomScale: 1
   FollowAttachment: 1
   LookAtAttachment: 1
---- !u!114 &1774761986 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7491056549594536943, guid: 49488fe5793c2204d96fa1442e00ce28, type: 3}
-  m_PrefabInstance: {fileID: 1900224240}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1001 &1900224240
+--- !u!1001 &1736176165
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -2475,15 +2464,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3270809668958390969, guid: 49488fe5793c2204d96fa1442e00ce28, type: 3}
       propertyPath: m_Name
-      value: Glitchable Object (3)
+      value: Glitchable Object (1)
       objectReference: {fileID: 0}
     - target: {fileID: 4208998823869429382, guid: 49488fe5793c2204d96fa1442e00ce28, type: 3}
       propertyPath: mInteractText
       value: 
-      objectReference: {fileID: 1774761986}
+      objectReference: {fileID: 1736176166}
     - target: {fileID: 4208998823869429382, guid: 49488fe5793c2204d96fa1442e00ce28, type: 3}
       propertyPath: mLevelToGlitchTo
-      value: 2.5D_UIWrld
+      value: 2.5D_CodeWrld
       objectReference: {fileID: 0}
     - target: {fileID: 4208998823869429382, guid: 49488fe5793c2204d96fa1442e00ce28, type: 3}
       propertyPath: mGlitchableSpawnPointName
@@ -2491,7 +2480,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6388033232505731264, guid: 49488fe5793c2204d96fa1442e00ce28, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.66
+      value: -4.37
       objectReference: {fileID: 0}
     - target: {fileID: 6388033232505731264, guid: 49488fe5793c2204d96fa1442e00ce28, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2537,6 +2526,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 49488fe5793c2204d96fa1442e00ce28, type: 3}
+--- !u!114 &1736176166 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7491056549594536943, guid: 49488fe5793c2204d96fa1442e00ce28, type: 3}
+  m_PrefabInstance: {fileID: 1736176165}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1943979522
 GameObject:
   m_ObjectHideFlags: 0
@@ -2829,7 +2829,7 @@ SceneRoots:
   - {fileID: 1943979526}
   - {fileID: 351286969}
   - {fileID: 549511797}
-  - {fileID: 1900224240}
+  - {fileID: 1736176165}
   - {fileID: 501251334}
   - {fileID: 7615108812656537851}
   - {fileID: 126328658}

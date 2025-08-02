@@ -4,25 +4,18 @@ using UnityEngine;
 
 public class GlitchManager : MonoBehaviour
 {
-    public static GlitchManager Instance;
-    [SerializeField]
-    private float DetectionRadius;
-    public List<GlitchableObject> mManagedObjects = new List<GlitchableObject>();
+    private float mGlitchableDistance = 5.0f;
+    public List<GlitchableObject> mManagedObjects;
     private GlitchableObject bestCandidate = null;
-    private GameObject mPlayerRef = null;
-    void Awake()
+
+    public void Initialize(float glitchableDistance)
     {
-        if (Instance != null)
+        if (mManagedObjects == null)
         {
-            Instance = null;
+            mManagedObjects = new List<GlitchableObject>();
         }
 
-        Instance = this;
-
-        if (!mPlayerRef)
-        {
-            mPlayerRef = GameObject.FindGameObjectWithTag("Player");
-        }
+        mGlitchableDistance = glitchableDistance;
     }
 
     public void AddGlitchableObject(GlitchableObject glitchableObject)
@@ -41,6 +34,7 @@ public class GlitchManager : MonoBehaviour
             return;
         }
         mManagedObjects.Remove(glitchableObject);
+        Destroy(glitchableObject);
     }
     public GlitchableObject GetBestTarget()
     {
@@ -48,7 +42,7 @@ public class GlitchManager : MonoBehaviour
     }
     private void Update()
     {
-        GetClosestGlitchableObjectToPlayer(mPlayerRef.transform.position);
+        GetClosestGlitchableObjectToPlayer(GlobalVariables.Instance.PlayerRef.transform.position);
     }
     private void GetClosestGlitchableObjectToPlayer(Vector3 playerPosition)
     {
@@ -57,16 +51,16 @@ public class GlitchManager : MonoBehaviour
         foreach (GlitchableObject obj in mManagedObjects)
         {
             float testDistance = Vector3.Distance(playerPosition, obj.transform.position);
-            if (testDistance < bestDistance && testDistance <= DetectionRadius)
+            if (testDistance < bestDistance && testDistance <= mGlitchableDistance)
             {
                 bestCandidate = obj;
                 bestDistance = testDistance;
-                bestCandidate.ChangeInteractTextStatus(true);
             }
-            else
-            {
-                obj.ChangeInteractTextStatus(false);
-            }
+            obj.ChangeInteractTextStatus(false);
+        }
+        if (bestCandidate)
+        {
+            bestCandidate.ChangeInteractTextStatus(true);
         }
     }
 }

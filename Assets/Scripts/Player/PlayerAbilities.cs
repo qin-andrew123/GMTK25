@@ -27,20 +27,19 @@ public class PlayerAbilities : MonoBehaviour
 
             bHasTriggeredAbility = true;
             Glitch();
+            StartCoroutine(AbilityCooldown());
         }
     }
 
     private void Glitch()
     {
-        GlitchableObject Target = GlitchManager.Instance.GetBestTarget();
+        GlitchableObject Target = GlobalVariables.Instance.GlitchManager.GetBestTarget();
         if (!Target)
         {
             Debug.LogWarning("PlayerAbilities.Glitch(): Target Object is null.");
             return;
         }
-
         Target.GlitchEffect();
-        StartCoroutine(AbilityCooldown());
     }
 
     private IEnumerator AbilityCooldown()

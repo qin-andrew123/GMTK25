@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &757659076911493430
+--- !u!1 &1821948112269710363
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7777452720098782058}
-  - component: {fileID: 6449621624146318325}
+  - component: {fileID: 3808631692300915984}
+  - component: {fileID: 293388939352782970}
   m_Layer: 0
-  m_Name: GlitchManager
+  m_Name: SpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7777452720098782058
+--- !u!4 &3808631692300915984
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 757659076911493430}
+  m_GameObject: {fileID: 1821948112269710363}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.4067097, y: 0.30903605, z: -2.9798124}
@@ -32,17 +32,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6449621624146318325
+--- !u!114 &293388939352782970
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 757659076911493430}
+  m_GameObject: {fileID: 1821948112269710363}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 185b103e67f653e40a4a4e35b7bedb41, type: 3}
+  m_Script: {fileID: 11500000, guid: 9eb9f59d63ff60b499db5bbfed180883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DetectionRadius: 3
-  mManagedObjects: []
+  PointName: Start
