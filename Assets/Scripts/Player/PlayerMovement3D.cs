@@ -30,6 +30,11 @@ public class PlayerMovement3D : MonoBehaviour
     public Animator mAnimator;
     public SpriteRenderer mSpriteRenderer;
 
+    //void Awake()
+    //{
+    //    DontDestroyOnLoad(gameObject);
+    //}
+
     void Start()
     {
         if (!mPlayerData)

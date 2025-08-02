@@ -36,7 +36,7 @@ public class LevelCompleteScreenGlitch : MonoBehaviour
         mVolume.gameObject.SetActive(true);
 
         yield return new WaitForSeconds(mScreenTime);
-        SceneManager.LoadScene("SecondLevelBlockout");
+        SceneManager.LoadScene("LevelBlockout_2");
 
     }
 }
