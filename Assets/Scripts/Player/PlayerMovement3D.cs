@@ -27,6 +27,9 @@ public class PlayerMovement3D : MonoBehaviour
     [SerializeField]
     private AudioEvent mJumpSFX;
 
+    public Animator mAnimator;
+    public SpriteRenderer mSpriteRenderer;
+
     void Start()
     {
         if (!mPlayerData)
@@ -73,6 +76,7 @@ public class PlayerMovement3D : MonoBehaviour
             mPlayerData.JumpToBeConsumed = true;
             mTimeOfJump = Time.time;
         }
+
     }
 
     private void FixedUpdate()
@@ -87,6 +91,17 @@ public class PlayerMovement3D : MonoBehaviour
 
         Vector3 calculatedMove = mFrameVelocityVector * Time.fixedDeltaTime;
         mRigidbody.MovePosition(mRigidbody.position + calculatedMove);
+
+        mAnimator.SetFloat("Speed", mFrameInput.mInputVector.magnitude);
+
+        if (mFrameInput.mInputVector.x < 0)
+        {
+            mSpriteRenderer.flipX = true;
+        }
+        else
+        {
+            mSpriteRenderer.flipX = false;
+        }
     }
 
     private void HandleCollision()
