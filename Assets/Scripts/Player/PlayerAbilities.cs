@@ -6,9 +6,9 @@ using System;
 
 public class PlayerAbilities : MonoBehaviour
 {
-    [SerializeField] 
-    private VisualEffect mDashVFX;
     public static event Action<Vector3> OnUsedGrabbedItem;
+    [SerializeField]
+    private VisualEffect mGlitchVFX;
     [SerializeField]
     private float mGlitchCooldown;
     [SerializeField]
@@ -52,9 +52,6 @@ public class PlayerAbilities : MonoBehaviour
 
     private void Glitch()
     {
-        // Dash
-        mDashVFX.Play();
-
         PlayerMovement3D playerMovement3D = GlobalVariables.Instance.PlayerRef.GetComponent<PlayerMovement3D>();
         if (!playerMovement3D)
         {
