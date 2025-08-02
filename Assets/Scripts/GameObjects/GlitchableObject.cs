@@ -10,6 +10,8 @@ public class GlitchableObject : MonoBehaviour
     private Transform mLocationToGlitchTo;
     [SerializeField]
     private AudioLevelState mAudioLevelState;
+    [SerializeField]
+    private AudioEvent mTeleportSFX;
     void Awake()
     {
         GlobalVariables.Instance.GlitchManager.AddGlitchableObject(this);
@@ -27,6 +29,7 @@ public class GlitchableObject : MonoBehaviour
         Debug.Log("This is a glitch effect");
         GlobalVariables.Instance.LevelManager.MovePlayerToPosition(mLocationToGlitchTo);
         AudioManager.Instance.SetAudioLevelState(mAudioLevelState);
+        mTeleportSFX.Play2DSound();
 
         PlayerMovement3D playerMovement = GlobalVariables.Instance.PlayerRef.gameObject.GetComponent<PlayerMovement3D>();
         if (!playerMovement)

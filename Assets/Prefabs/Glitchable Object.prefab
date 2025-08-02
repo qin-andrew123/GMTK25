@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5151772219521566558}
   - component: {fileID: 1537412343892993050}
   - component: {fileID: 4208998823869429382}
+  - component: {fileID: 947727497423031968}
   m_Layer: 13
   m_Name: Glitchable Object
   m_TagString: Untagged
@@ -123,8 +124,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mInteractText: {fileID: 7491056549594536943}
-  mLevelToGlitchTo: 
   mLocationToGlitchTo: {fileID: 0}
+  mAudioLevelState: 0
+  mTeleportSFX: {fileID: 11400000, guid: 030ee821a2df8504e9fa6e6ea736fdb2, type: 2}
+--- !u!114 &947727497423031968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3270809668958390969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8a6c753db3fc5f47a77189ea0a09756, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mStartupSounds:
+  - {fileID: 11400000, guid: 1340d5f65330ae545ac0a2ac08a3cb47, type: 2}
 --- !u!1 &3511959266214212705
 GameObject:
   m_ObjectHideFlags: 0
