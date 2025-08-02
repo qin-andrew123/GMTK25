@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6307a4bcec1792846ab69a6ecbd6931f, type: 3}
-  m_Name: LayerSwitch
+  m_Name: Pickup_Star
   m_EditorClassIdentifier: 
   mSound:
-  - {fileID: 8300000, guid: a4bedc7a5b4e7074b883b13441c4a54c, type: 3}
+  - {fileID: 8300000, guid: e84785536951f5c428a0fa1345d9967f, type: 3}
   bIsSpatial: 0
   bIsLoop: 0
-  mVolumeScale: 0.8
+  mVolumeScale: 1
   mSpatialBlend: 0
   mMaxDistance: 0
