@@ -1488,6 +1488,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7148320648199093730, guid: a0ae1e3f817832645bfc52934cd3e91d, type: 3}
+      propertyPath: respawnPosition
+      value: 
+      objectReference: {fileID: 1231551975}
     - target: {fileID: 8402680281344612683, guid: a0ae1e3f817832645bfc52934cd3e91d, type: 3}
       propertyPath: m_Name
       value: Spikes (2)
@@ -1565,6 +1569,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7148320648199093730, guid: a0ae1e3f817832645bfc52934cd3e91d, type: 3}
+      propertyPath: respawnPosition
+      value: 
+      objectReference: {fileID: 1231551975}
     - target: {fileID: 8402680281344612683, guid: a0ae1e3f817832645bfc52934cd3e91d, type: 3}
       propertyPath: m_Name
       value: Spikes (1)
@@ -4171,6 +4179,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7148320648199093730, guid: a0ae1e3f817832645bfc52934cd3e91d, type: 3}
+      propertyPath: respawnPosition
+      value: 
+      objectReference: {fileID: 1231551975}
     - target: {fileID: 8402680281344612683, guid: a0ae1e3f817832645bfc52934cd3e91d, type: 3}
       propertyPath: m_Name
       value: Spikes
