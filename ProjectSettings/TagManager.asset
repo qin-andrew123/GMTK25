@@ -7,6 +7,7 @@ TagManager:
   - Star
   - AudioBlocker
   - DarknessVolume
+  - Grass
   layers:
   - Default
   - TransparentFX

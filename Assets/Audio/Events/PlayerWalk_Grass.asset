@@ -10,11 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6307a4bcec1792846ab69a6ecbd6931f, type: 3}
-  m_Name: PlayerWalk
+  m_Name: PlayerWalk_Grass
   m_EditorClassIdentifier: 
-  mSound: []
+  mSound:
+  - {fileID: 8300000, guid: 6a455969e704a0a46afbc5856631a1c8, type: 3}
+  - {fileID: 8300000, guid: 7867e71bac8deb14d92a6e7d7103eeab, type: 3}
+  - {fileID: 8300000, guid: 320eff33aafc62444b76828e07eb5695, type: 3}
   bIsSpatial: 0
   bIsLoop: 0
-  mVolumeScale: 1
+  mVolumeScale: 0.8
   mSpatialBlend: 0
   mMaxDistance: 0
