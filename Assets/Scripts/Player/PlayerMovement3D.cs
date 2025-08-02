@@ -126,7 +126,7 @@ public class PlayerMovement3D : MonoBehaviour
                         mPlayerData.GlitchLayers);
             if (hits.Length != 0)
             {
-                foreach(var hit in hits)
+                foreach (var hit in hits)
                 {
                     GlitchableObject glitchableObject = hit.gameObject.GetComponent<GlitchableObject>();
                     if (glitchableObject)
@@ -156,19 +156,20 @@ public class PlayerMovement3D : MonoBehaviour
             Vector3 calculatedMove = mFrameVelocityVector * Time.fixedDeltaTime;
             mRigidbody.MovePosition(mRigidbody.position + calculatedMove);
 
-        mAnimator.SetFloat("Speed", mFrameInput.mInputVector.magnitude);
+            mAnimator.SetFloat("Speed", mFrameInput.mInputVector.magnitude);
 
-        if (mFrameInput.mInputVector.x < 0)
-        {
-            mSpriteRenderer.flipX = true;
+            if (mFrameInput.mInputVector.x < 0)
+            {
+                mSpriteRenderer.flipX = true;
+            }
+            else
+            {
+                mSpriteRenderer.flipX = false;
+            }
+            mAnimator.SetBool("isGrounded", mPlayerData.IsGrounded);
+            Debug.Log(mPlayerData.IsGrounded);
         }
-        else
-        {
-            mSpriteRenderer.flipX = false;
-        }
-        mAnimator.SetBool("isGrounded", mPlayerData.IsGrounded);
-        Debug.Log(mPlayerData.IsGrounded);
-        }
+    }
 
     private void HandleCollision()
     {
