@@ -6,21 +6,15 @@ public class GlitchableObject : MonoBehaviour
 {
     [SerializeField]
     private TextMeshPro mInteractText;
+    [SerializeField, Tooltip("The name of the spawnpoint that you want to transport the player to when you glitch")]
+    private string mLevelToGlitchTo = "";
     void Awake()
     {
-
-    }
-    private void OnEnable()
-    {
-        StartCoroutine(AddSelfToManager());
-    }
-    private void OnDisable()
-    {
-        GlitchManager.Instance.RemoveGlitchableObject(this);
+        GlobalVariables.Instance.GlitchManager.AddGlitchableObject(this);
     }
     private void OnDestroy()
     {
-        GlitchManager.Instance.RemoveGlitchableObject(this);
+        GlobalVariables.Instance.GlitchManager.RemoveGlitchableObject(this);
     }
     public void ChangeInteractTextStatus(bool bShouldbeEnabled)
     {
@@ -29,11 +23,17 @@ public class GlitchableObject : MonoBehaviour
     public void GlitchEffect()
     {
         Debug.Log("This is a glitch effect");
+        if(mLevelToGlitchTo.Length == 0)
+        {
+            Debug.LogWarning(gameObject.name + " has an empty string for mLevelToGlitchTo");
+            return;
+        }
+        GlobalVariables.Instance.LevelManager.HandleMovePlayerToNewLevel(mLevelToGlitchTo);
     }
 
     private IEnumerator AddSelfToManager()
     {
-        yield return new WaitUntil(() => GlitchManager.Instance != null);
-        GlitchManager.Instance.AddGlitchableObject(this);
+        yield return new WaitUntil(() => GlobalVariables.Instance.GlitchManager != null);
+        GlobalVariables.Instance.GlitchManager.AddGlitchableObject(this);
     }
 }

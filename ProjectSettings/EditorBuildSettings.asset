@@ -35,6 +35,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Test/UIReal.unity
     guid: f4c469914d1534e4d8e0422b9b9ed6e9
+  - enabled: 1
+    path: Assets/Scenes/Test/2.5D_CodeWrld.unity
+    guid: 00e7a142095a5764da3dc7c695b0b1e0
+  - enabled: 1
+    path: Assets/Scenes/Test/2.5D_UIWrld.unity
+    guid: c2e119201b9d90047bc0841683a3dc23
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 35845fe01580c41289b024647b1d1c53, type: 3}
   m_UseUCBPForAssetBundles: 0
