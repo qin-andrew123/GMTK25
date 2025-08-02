@@ -20,6 +20,8 @@ public class AudioManager : MonoBehaviour
     private AudioGlitchPreset[] mGlitchPresets;
     [SerializeField]
     private int mCurrentGlitchPreset = 0;
+    public AudioMixerGroup MusicMixer;
+    public AudioMixerGroup SFXMixer;
 
     private AudioSource mCodeSource;
     private AudioSource mUISource;
@@ -42,10 +44,12 @@ public class AudioManager : MonoBehaviour
     {
         mCodeSource = transform.AddComponent<AudioSource>();
         mCodeSource.resource = mBGM.mSound[0];
+        mCodeSource.outputAudioMixerGroup = MusicMixer;
         mCodeSource.loop = true;
 
         mUISource = transform.AddComponent<AudioSource>();
         mUISource.resource = mBGM.mSound[1];
+        mCodeSource.outputAudioMixerGroup = MusicMixer;
         mUISource.loop = true;
 
         mCodeSource.Play();

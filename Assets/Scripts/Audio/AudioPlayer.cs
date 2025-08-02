@@ -14,6 +14,7 @@ public class AudioPlayer : MonoBehaviour
     {
         AudioSource audioSource = transform.AddComponent<AudioSource>();
         mSources.Add(audioSource);
+        audioSource.outputAudioMixerGroup = AudioManager.Instance.SFXMixer;
 
         foreach (AudioEvent audioEvent in mStartupSounds)
         {
@@ -34,6 +35,7 @@ public class AudioPlayer : MonoBehaviour
             audioSource.spatialBlend = audioEvent.mSpatialBlend;
             audioSource.volume = audioEvent.mVolumeScale;
             audioSource.loop = audioEvent.bIsLoop;
+            audioSource.outputAudioMixerGroup = AudioManager.Instance.SFXMixer;
             audioSource.Play();
 
             return audioSource;
