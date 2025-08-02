@@ -1,5 +1,6 @@
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -17,6 +18,8 @@ public class GlitchableObject : MonoBehaviour
     private AudioLevelState mAudioLevelState;
     [SerializeField]
     private AudioEvent mTeleportSFX;
+
+    private Animator mPlayerAnimator;
     void Awake()
     {
         GlobalVariables.Instance.GlitchManager.AddGlitchableObject(this);
@@ -31,6 +34,9 @@ public class GlitchableObject : MonoBehaviour
     }
     public void GlitchEffect()
     {
+        mPlayerAnimator = GlobalVariables.Instance.PlayerRef.GetComponent<Animator>();
+        mPlayerAnimator.SetTrigger("Glitch");
+
         mGlitchVFX.Play();
         Debug.Log("This is a glitch effect");
 
