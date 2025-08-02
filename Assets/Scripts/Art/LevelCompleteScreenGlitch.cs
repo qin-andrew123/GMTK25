@@ -10,6 +10,8 @@ public class LevelCompleteScreenGlitch : MonoBehaviour
     private float mScreenTime;
     [SerializeField]
     private Volume mVolume;
+    [SerializeField]
+    private string mSceneToLoad = "LevelBlockout_2";
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -36,7 +38,6 @@ public class LevelCompleteScreenGlitch : MonoBehaviour
         mVolume.gameObject.SetActive(true);
 
         yield return new WaitForSeconds(mScreenTime);
-        SceneManager.LoadScene("LevelBlockout_2");
-
+        SceneManager.LoadScene(mSceneToLoad);
     }
 }
