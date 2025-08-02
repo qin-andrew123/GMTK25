@@ -51,6 +51,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f55c7d5d8fd901146a540081b9ddc576, type: 2}
   - {fileID: 11400000, guid: 66fc1b20e03d555409b7744e3a83996b, type: 2}
   mCurrentGlitchPreset: 0
+  MusicMixer: {fileID: -868968247532358626, guid: f597f06cee2345047899fb98d03a20c9, type: 2}
+  SFXMixer: {fileID: 5919844241527727670, guid: f597f06cee2345047899fb98d03a20c9, type: 2}
 --- !u!114 &3532525369663158572
 MonoBehaviour:
   m_ObjectHideFlags: 0

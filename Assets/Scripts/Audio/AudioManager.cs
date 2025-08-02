@@ -49,7 +49,7 @@ public class AudioManager : MonoBehaviour
 
         mUISource = transform.AddComponent<AudioSource>();
         mUISource.resource = mBGM.mSound[1];
-        mCodeSource.outputAudioMixerGroup = MusicMixer;
+        mUISource.outputAudioMixerGroup = MusicMixer;
         mUISource.loop = true;
 
         mCodeSource.Play();

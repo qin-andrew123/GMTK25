@@ -14,12 +14,16 @@ public class AudioPlayer : MonoBehaviour
     {
         AudioSource audioSource = transform.AddComponent<AudioSource>();
         mSources.Add(audioSource);
-        audioSource.outputAudioMixerGroup = AudioManager.Instance.SFXMixer;
 
         foreach (AudioEvent audioEvent in mStartupSounds)
         {
             PlayAudioEvent(audioEvent);
         }
+    }
+
+    private void Start()
+    {
+        mSources[0].outputAudioMixerGroup = AudioManager.Instance.SFXMixer;
     }
 
     public AudioSource PlayAudioEvent(AudioEvent audioEvent)
