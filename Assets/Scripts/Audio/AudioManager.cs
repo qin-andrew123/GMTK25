@@ -24,6 +24,7 @@ public class AudioManager : MonoBehaviour
     public AudioMixerGroup SFXMixer;
 
     private AudioSource mCodeSource;
+    private AudioSource mGameSource;
     private AudioSource mUISource;
     private AudioLevelState mAudioLevelState = AudioLevelState.Game;
 
@@ -32,31 +33,53 @@ public class AudioManager : MonoBehaviour
         if (Instance != null)
         {
             Instance.SetGlitchLevel(mCurrentGlitchPreset);
+            if (mBGM == null)
+            {
+                Instance.mCodeSource.Stop();
+                Instance.mGameSource.Stop();
+                Instance.mUISource.Stop();
+            }
+            else if (!Instance.mCodeSource.isPlaying)
+            {
+                Instance.mCodeSource.Play();
+                Instance.mGameSource.Play();
+                Instance.mUISource.Play();
+            }
             Destroy(gameObject);
             return;
         }
 
         Instance = this;
+        StartMusic();
         mAudioPlayer = GetComponent<AudioPlayer>();
         DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
     {
+        StartGlitch();
+    }
+
+    void StartMusic()
+    {
         mCodeSource = transform.AddComponent<AudioSource>();
         mCodeSource.resource = mBGM.mSound[0];
         mCodeSource.outputAudioMixerGroup = MusicMixer;
         mCodeSource.loop = true;
 
+        mGameSource = transform.AddComponent<AudioSource>();
+        mGameSource.resource = mBGM.mSound[1];
+        mGameSource.outputAudioMixerGroup = MusicMixer;
+        mGameSource.loop = true;
+
         mUISource = transform.AddComponent<AudioSource>();
-        mUISource.resource = mBGM.mSound[1];
+        mUISource.resource = mBGM.mSound[2];
         mUISource.outputAudioMixerGroup = MusicMixer;
         mUISource.loop = true;
 
         mCodeSource.Play();
+        mGameSource.Play();
         mUISource.Play();
-
-        StartGlitch();
     }
 
     public void SetAudioLevelState(AudioLevelState audioLevelState)
@@ -67,14 +90,17 @@ public class AudioManager : MonoBehaviour
         {
             case AudioLevelState.Code:
                 mCodeSource.mute = false;
+                mGameSource.mute = true;
                 mUISource.mute = true;
                 break;
             case AudioLevelState.Game:
                 mCodeSource.mute = false;
+                mGameSource.mute = false;
                 mUISource.mute = false;
                 break;
             case AudioLevelState.UI:
                 mCodeSource.mute = true;
+                mGameSource.mute = true;
                 mUISource.mute = false;
                 break;
         }
@@ -105,9 +131,11 @@ public class AudioManager : MonoBehaviour
                 volume = Mathf.Round(volume);
                 volume *= currentPreset.mGlitchIntensity;
                 mCodeSource.volume = volume;
+                mGameSource.volume = volume;
                 mUISource.volume = volume;
 
                 mCodeSource.pitch = 1 + currentPreset.mPitchOffset;
+                mGameSource.pitch = 1 + currentPreset.mPitchOffset;
                 mUISource.pitch = 1 + currentPreset.mPitchOffset;
 
                 float delay = Random.Range(currentPreset.mMinGlitchDelay, currentPreset.mMaxGlitchDelay);
@@ -116,8 +144,10 @@ public class AudioManager : MonoBehaviour
             else
             {
                 mCodeSource.volume = mBGM.mVolumeScale;
+                mGameSource.volume = mBGM.mVolumeScale;
                 mUISource.volume = mBGM.mVolumeScale;
                 mCodeSource.pitch = 1f;
+                mGameSource.pitch = 1f;
                 mUISource.pitch = 1f;
                 yield return null;
             }
