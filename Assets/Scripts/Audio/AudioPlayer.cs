@@ -21,44 +21,37 @@ public class AudioPlayer : MonoBehaviour
         }
     }
 
-    public int PlayAudioEvent(AudioEvent audioEvent)
+    public AudioSource PlayAudioEvent(AudioEvent audioEvent)
     {
-        if (audioEvent == null || audioEvent.mSound == null) { return -1; }
+        if (audioEvent == null || audioEvent.mSound == null || audioEvent.mSound.Length == 0) { return null; }
+        int soundIndex = Random.Range(0, audioEvent.mSound.Length);
 
         if (audioEvent.bIsSpatial)
         {
             AudioSource audioSource = transform.AddComponent<AudioSource>();
             mSources.Add(audioSource);
-            audioSource.resource = audioEvent.mSound;
+            audioSource.resource = audioEvent.mSound[soundIndex];
             audioSource.spatialBlend = audioEvent.mSpatialBlend;
             audioSource.volume = audioEvent.mVolumeScale;
             audioSource.loop = audioEvent.bIsLoop;
             audioSource.Play();
 
-            return mSources.Count - 1;
+            return audioSource;
         }
         else if (audioEvent.bIsLoop)
         {
-            return FindAndPlaySource(audioEvent);
+            return FindAndPlaySource(audioEvent, soundIndex);
         }
         else
         {
-            if (audioEvent.mSound is AudioClip)
-            {
-                mSources[0].PlayOneShot(audioEvent.mSound as AudioClip, audioEvent.mVolumeScale);
-                return -1;
-            }
-            else
-            {
-                // Random containers cannot be played as a fire-and-forget SFX for some stupid reason
-                return FindAndPlaySource(audioEvent);
-            }
+            mSources[0].PlayOneShot(audioEvent.mSound[soundIndex], audioEvent.mVolumeScale);
+            return null;
         }
     }
 
     // Searches for an available audio source to play from
     // If there are none, creates a new one
-    private int FindAndPlaySource(AudioEvent audioEvent)
+    private AudioSource FindAndPlaySource(AudioEvent audioEvent, int soundIndex)
     {
         int availSource = -1;
         for (int i = 0; i < mSources.Count; ++i)
@@ -74,19 +67,19 @@ public class AudioPlayer : MonoBehaviour
         {
             AudioSource audioSource = transform.AddComponent<AudioSource>();
             mSources.Add(audioSource);
-            audioSource.resource = audioEvent.mSound;
+            audioSource.resource = audioEvent.mSound[soundIndex];
             audioSource.volume = audioEvent.mVolumeScale;
             audioSource.loop = audioEvent.bIsLoop;
             audioSource.Play();
-            return mSources.Count - 1;
+            return audioSource;
         }
         else
         {
-            mSources[availSource].resource = audioEvent.mSound;
+            mSources[availSource].resource = audioEvent.mSound[soundIndex];
             mSources[availSource].volume = audioEvent.mVolumeScale;
             mSources[availSource].loop = audioEvent.bIsLoop;
             mSources[availSource].Play();
-            return availSource;
+            return mSources[availSource];
         }
     }
 }

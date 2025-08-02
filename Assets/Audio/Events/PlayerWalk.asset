@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6307a4bcec1792846ab69a6ecbd6931f, type: 3}
   m_Name: PlayerWalk
   m_EditorClassIdentifier: 
-  mSound: {fileID: 0}
+  mSound: []
   bIsSpatial: 0
   bIsLoop: 0
   mVolumeScale: 1

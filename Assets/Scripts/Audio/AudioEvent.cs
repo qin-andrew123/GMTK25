@@ -4,8 +4,8 @@ using UnityEngine.Audio;
 [CreateAssetMenu(fileName = "AudioEvent", menuName = "Scriptable Objects/AudioEvent")]
 public class AudioEvent : ScriptableObject
 {
-    [Tooltip("Sound to play")]
-    public AudioResource mSound;
+    [Tooltip("Sounds to play (picked randomly)")]
+    public AudioClip[] mSound;
     [Tooltip("Should the sound play spatialized on the GameObject")]
     public bool bIsSpatial;
     [Tooltip("Is the sound a loop or one-shot")]

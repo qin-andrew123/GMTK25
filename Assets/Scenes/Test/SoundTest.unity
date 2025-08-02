@@ -643,7 +643,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 888507136c4ccb74fb6f943c139db692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mAbilityCooldown: 1
+  mGlitchVFX: {fileID: 0}
+  mGlitchCooldown: 0
+  mGrabCooldown: 0
 --- !u!1 &690510974
 GameObject:
   m_ObjectHideFlags: 0
@@ -2363,6 +2365,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Glitchable Object
       objectReference: {fileID: 0}
+    - target: {fileID: 4208998823869429382, guid: 49488fe5793c2204d96fa1442e00ce28, type: 3}
+      propertyPath: mInteractText
+      value: 
+      objectReference: {fileID: 8285087227639470003}
     - target: {fileID: 6388033232505731264, guid: 49488fe5793c2204d96fa1442e00ce28, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.31
@@ -2411,6 +2417,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 49488fe5793c2204d96fa1442e00ce28, type: 3}
+--- !u!114 &8285087227639470003 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7491056549594536943, guid: 49488fe5793c2204d96fa1442e00ce28, type: 3}
+  m_PrefabInstance: {fileID: 8285087227639470002}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8927146464218220163
 PrefabInstance:
   m_ObjectHideFlags: 0

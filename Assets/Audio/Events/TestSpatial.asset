@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6307a4bcec1792846ab69a6ecbd6931f, type: 3}
   m_Name: TestSpatial
   m_EditorClassIdentifier: 
-  mSound: {fileID: 8300000, guid: b8b0a0415cf27324aa669bf6ac70b231, type: 3}
-  bIsSpatial: 0
+  mSound:
+  - {fileID: 8300000, guid: b8b0a0415cf27324aa669bf6ac70b231, type: 3}
+  bIsSpatial: 1
   bIsLoop: 0
   mVolumeScale: 1
-  mSpatialBlend: 0
-  mMaxDistance: 0
+  mSpatialBlend: 1
+  mMaxDistance: 500
