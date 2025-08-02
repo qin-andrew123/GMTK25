@@ -12,11 +12,16 @@ public class LevelCompleteScreenGlitch : MonoBehaviour
     private Volume mVolume;
     [SerializeField]
     private string mSceneToLoad = "LevelBlockout_2";
+    [SerializeField]
+    private AudioEvent mLevelCompleteStinger;
+    [SerializeField]
+    private AudioEvent mGlitchSFX;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         mVolume.gameObject.SetActive(false);
+        mLevelCompleteStinger.Play2DSound();
         StartCoroutine(GlitchAndShutdown());
     }
 
@@ -34,7 +39,9 @@ public class LevelCompleteScreenGlitch : MonoBehaviour
         //    mVolume.parameters
         //    yield return null;
         //}
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.75f);
+        mGlitchSFX.Play2DSound();
+        yield return new WaitForSeconds(0.25f);
         mVolume.gameObject.SetActive(true);
 
         yield return new WaitForSeconds(mScreenTime);

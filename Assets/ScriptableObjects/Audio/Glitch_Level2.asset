@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Glitch_Level2
   m_EditorClassIdentifier: 
   bDoGlitch: 1
-  mGlitchIntensity: 0.5
-  mPitchOffset: -0.2
+  mGlitchIntensity: 0.25
+  mPitchOffset: -2
   mMinGlitchDelay: 0.1
   mMaxGlitchDelay: 0.3
   DelayModifier: 0.8

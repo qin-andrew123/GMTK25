@@ -26,6 +26,7 @@ public class GlitchableObject : MonoBehaviour
     {
         Debug.Log("This is a glitch effect");
         GlobalVariables.Instance.LevelManager.MovePlayerToPosition(mLocationToGlitchTo);
+        AudioManager.Instance.SetAudioLevelState(mAudioLevelState);
 
         PlayerMovement3D playerMovement = GlobalVariables.Instance.PlayerRef.gameObject.GetComponent<PlayerMovement3D>();
         if (!playerMovement)
