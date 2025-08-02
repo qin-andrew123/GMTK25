@@ -8,8 +8,12 @@ public class PlayerAbilities : MonoBehaviour
     [SerializeField]
     private VisualEffect mGlitchVFX;
     [SerializeField]
-    private float mAbilityCooldown;
-    private bool bHasTriggeredAbility = false;
+    private float mGlitchCooldown;
+    [SerializeField]
+    private float mGrabCooldown;
+    private bool bHasTriggeredGlitch = false;
+    private bool bHasTriggeredGrab = false;
+    private GrabableObject mGrabbedItem = null;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -20,14 +24,22 @@ public class PlayerAbilities : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float abilityInput = Input.GetAxisRaw("Ability1");
-        if ((abilityInput >= 1.0f) && !bHasTriggeredAbility)
-        {
-            Debug.Log("Triggered Ability");
+        float glitchInput = Input.GetAxisRaw("Ability1");
+        float grabInput = Input.GetAxisRaw("Ability2");
 
-            bHasTriggeredAbility = true;
+        if ((glitchInput >= 1.0f) && !bHasTriggeredGlitch)
+        {
+            Debug.Log("Triggered Glitch");
+
+            bHasTriggeredGlitch = true;
             Glitch();
             StartCoroutine(AbilityCooldown());
+        }
+        else if((grabInput >= 1.0f) && !bHasTriggeredGrab)
+        {
+            Debug.Log("Grabbing Item");
+            bHasTriggeredGrab = true;
+            GrabItem();
         }
     }
 
@@ -37,16 +49,49 @@ public class PlayerAbilities : MonoBehaviour
         if (!Target)
         {
             Debug.LogWarning("PlayerAbilities.Glitch(): Target Object is null.");
+            bHasTriggeredGlitch = false;
             return;
         }
         Target.GlitchEffect();
     }
 
-    private IEnumerator AbilityCooldown()
+    private void GrabItem()
     {
-        yield return new WaitForSeconds(mAbilityCooldown);
+        // drop item if there is one in hand
+        if(mGrabbedItem)
+        {
+            mGrabbedItem.DropEffect();
+            mGrabbedItem = null;
+        }
+        else
+        {
+            GrabableObject Target = GrabableObjectManager.Instance.GetBestTarget();
+            if (!Target)
+            {
+                Debug.LogWarning("PlayerAbilities.Grab(): Target Object is null.");
+                bHasTriggeredGrab = false;
+                return;
+            }
+
+            Target.GrabEffect();
+            Target.transform.SetParent(transform, false);
+            mGrabbedItem = Target;
+        }
+        StartCoroutine(GrabCooldown());
+    }
+
+    private IEnumerator GlitchCooldown()
+    {
+        yield return new WaitForSeconds(mGlitchCooldown);
         Debug.Log("End of Cooldown");
-        bHasTriggeredAbility = false;
+        bHasTriggeredGlitch = false;
+    }
+
+    private IEnumerator GrabCooldown()
+    {
+        yield return new WaitForSeconds(mGrabCooldown);
+        Debug.Log("End of Cooldown");
+        bHasTriggeredGrab = false;
     }
 
 }
