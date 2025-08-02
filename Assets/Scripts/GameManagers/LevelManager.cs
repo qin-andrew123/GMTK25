@@ -66,4 +66,8 @@ public class LevelManager : MonoBehaviour
     {
         SceneManager.LoadScene(LevelName);
     }
+    public void HandleReloadLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }
