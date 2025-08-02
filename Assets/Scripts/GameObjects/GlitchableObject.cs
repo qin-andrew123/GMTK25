@@ -1,13 +1,18 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class GlitchableObject : MonoBehaviour
 {
     [SerializeField]
+    private VisualEffect mGlitchVFX;
+    [SerializeField]
     private TextMeshPro mInteractText;
     [SerializeField]
     private Transform mLocationToGlitchTo;
+    [SerializeField]
+    private float mDelayBeforeTransport = 0.2f;
     [SerializeField]
     private AudioLevelState mAudioLevelState;
     [SerializeField]
@@ -26,7 +31,17 @@ public class GlitchableObject : MonoBehaviour
     }
     public void GlitchEffect()
     {
+        mGlitchVFX.Play();
         Debug.Log("This is a glitch effect");
+
+        StartCoroutine(GlitchTransportDelay());
+
+    }
+
+    private IEnumerator GlitchTransportDelay()
+    {
+        yield return new WaitForSeconds(mDelayBeforeTransport);
+
         GlobalVariables.Instance.LevelManager.MovePlayerToPosition(mLocationToGlitchTo);
         AudioManager.Instance.SetAudioLevelState(mAudioLevelState);
         mTeleportSFX.Play2DSound();
@@ -35,8 +50,9 @@ public class GlitchableObject : MonoBehaviour
         if (!playerMovement)
         {
             Debug.LogWarning("PlayerMovement3d is null on playerref");
-            return;
+            yield break;
         }
         playerMovement.IsDashing = false;
+
     }
 }
