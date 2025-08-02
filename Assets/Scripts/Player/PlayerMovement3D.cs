@@ -81,14 +81,14 @@ public class PlayerMovement3D : MonoBehaviour
     void Update()
     {
         float XInput = Input.GetAxisRaw("Horizontal");
-        float ZInput = Input.GetAxisRaw("Vertical");
+        //float ZInput = Input.GetAxisRaw("Vertical");
 
         if (mFrameInput.mInputVector != Vector3.zero)
         {
             mLastFrameInputDirection = mFrameInput.mInputVector;
         }
 
-        mFrameInput.mInputVector = new Vector3(XInput, 0.0f, ZInput);
+        mFrameInput.mInputVector = new Vector3(XInput, 0.0f, 0.0f);
         mFrameInput.bIsJumpPressedDown = Input.GetButtonDown("Jump");
         mFrameInput.bIsJumpHeldDown = Input.GetButton("Jump");
 
