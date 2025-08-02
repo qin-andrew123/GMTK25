@@ -2581,7 +2581,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7179753774159226408, guid: 097f7972c94065b4ba6ee887e7130ab8, type: 3}
+      propertyPath: mLevelNumber
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7179753774159226408, guid: 097f7972c94065b4ba6ee887e7130ab8, type: 3}
       propertyPath: respawnPosition
+      value: 
+      objectReference: {fileID: 898784953}
+    - target: {fileID: 7179753774159226408, guid: 097f7972c94065b4ba6ee887e7130ab8, type: 3}
+      propertyPath: mRespawnPosition
       value: 
       objectReference: {fileID: 898784953}
     - target: {fileID: 8393682968932406321, guid: 097f7972c94065b4ba6ee887e7130ab8, type: 3}

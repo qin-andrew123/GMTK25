@@ -382,6 +382,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mScreenTime: 4
   mVolume: {fileID: 2098525495}
+  mSceneToLoad: LevelBlockout_2
 --- !u!4 &22673551
 Transform:
   m_ObjectHideFlags: 0
