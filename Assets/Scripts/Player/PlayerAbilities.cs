@@ -5,8 +5,8 @@ using UnityEngine.VFX;
 
 public class PlayerAbilities : MonoBehaviour
 {
-    [SerializeField]
-    private VisualEffect mGlitchVFX;
+    [SerializeField] 
+    private VisualEffect mDashVFX;
     [SerializeField]
     private float mGlitchCooldown;
     [SerializeField]
@@ -52,6 +52,8 @@ public class PlayerAbilities : MonoBehaviour
     private void Glitch()
     {
         // Dash
+
+        mDashVFX.Play();
 
         PlayerMovement3D playerMovement3D = GlobalVariables.Instance.PlayerRef.GetComponent<PlayerMovement3D>();
         if (!playerMovement3D)
