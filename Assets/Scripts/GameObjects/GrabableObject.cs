@@ -8,23 +8,21 @@ public class GrabableObject : MonoBehaviour
     private TextMeshPro mInteractText;
     [SerializeField]
     private bool bGlitchAudio = false;
-
-    void Awake()
-    {
-
-    }
     private void OnEnable()
     {
         StartCoroutine(AddSelfToManager());
+        PlayerAbilities.OnUsedGrabbedItem += UseGrabableObject;
     }
     private void OnDisable()
     {
-        GrabableObjectManager.Instance.RemoveGrabableObject(this);
+        PlayerAbilities.OnUsedGrabbedItem -= UseGrabableObject;
     }
     private void OnDestroy()
     {
         GrabableObjectManager.Instance.RemoveGrabableObject(this);
+        PlayerAbilities.OnUsedGrabbedItem -= UseGrabableObject;
     }
+    protected virtual void UseGrabableObject(Vector3 pixelSpaceMouseInput) { }
     public void ChangeInteractTextStatus(bool bShouldbeEnabled)
     {
         mInteractText.enabled = bShouldbeEnabled;

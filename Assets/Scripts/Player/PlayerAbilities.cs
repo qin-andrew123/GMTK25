@@ -2,9 +2,11 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.Timeline;
 using UnityEngine.VFX;
+using System;
 
 public class PlayerAbilities : MonoBehaviour
 {
+    public static event Action<Vector3> OnUsedGrabbedItem;
     [SerializeField]
     private VisualEffect mGlitchVFX;
     [SerializeField]
@@ -13,6 +15,7 @@ public class PlayerAbilities : MonoBehaviour
     private float mGrabCooldown;
     private bool bHasTriggeredGlitch = false;
     private bool bHasTriggeredGrab = false;
+    private bool bHasUsedItem = false;
     private GrabableObject mGrabbedItem = null;
 
     private void OnEnable()
@@ -23,36 +26,32 @@ public class PlayerAbilities : MonoBehaviour
     {
         PlayerMovement3D.OnDashComplete -= GlitchReset;
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        float glitchInput = Input.GetAxisRaw("Ability1");
-        float grabInput = Input.GetAxisRaw("Ability2");
-
-        if ((glitchInput >= 1.0f) && !bHasTriggeredGlitch)
+        bool glitchInput = Input.GetButtonDown("Glitch");
+        bool grabInput = Input.GetButtonDown("GrabObject");
+        bool useGrabbedObject = Input.GetButtonDown("UseGrabbedObject");
+        if (glitchInput && !bHasTriggeredGlitch)
         {
             Debug.Log("Triggered Glitch");
 
             bHasTriggeredGlitch = true;
             Glitch();
         }
-        else if ((grabInput >= 1.0f) && !bHasTriggeredGrab)
+        else if (grabInput && !bHasTriggeredGrab)
         {
             Debug.Log("Grabbing Item");
             bHasTriggeredGrab = true;
             GrabItem();
         }
+        else if (useGrabbedObject && !bHasUsedItem && mGrabbedItem)
+        {
+            OnUsedGrabbedItem?.Invoke(Input.mousePosition);
+        }
     }
 
     private void Glitch()
     {
-        // Dash
-
         PlayerMovement3D playerMovement3D = GlobalVariables.Instance.PlayerRef.GetComponent<PlayerMovement3D>();
         if (!playerMovement3D)
         {
@@ -62,14 +61,6 @@ public class PlayerAbilities : MonoBehaviour
 
         playerMovement3D.IsDashing = true;
         playerMovement3D.Dash();
-        //GlitchableObject Target = GlobalVariables.Instance.GlitchManager.GetBestTarget();
-        //if (!Target)
-        //{
-        //    Debug.LogWarning("PlayerAbilities.Glitch(): Target Object is null.");
-        //    bHasTriggeredGlitch = false;
-        //    return;
-        //}
-        //Target.GlitchEffect();
     }
     private void GlitchReset()
     {
@@ -79,6 +70,15 @@ public class PlayerAbilities : MonoBehaviour
         }
 
         StartCoroutine(GlitchCooldown());
+    }
+    public void ResetUseGrabbedItem(float time)
+    {
+        if (!bHasUsedItem)
+        {
+            return;
+        }
+
+        StartCoroutine(GrabbedItemCooldown(time));
     }
     private void GrabItem()
     {
@@ -118,5 +118,10 @@ public class PlayerAbilities : MonoBehaviour
         Debug.Log("End of Cooldown");
         bHasTriggeredGrab = false;
     }
-
+    private IEnumerator GrabbedItemCooldown(float time)
+    {
+        yield return new WaitForSeconds(time);
+        Debug.Log("End of Cooldown");
+        bHasUsedItem = false;
+    }
 }
