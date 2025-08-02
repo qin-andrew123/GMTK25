@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 100324362}
   - component: {fileID: 100324361}
   - component: {fileID: 100324360}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -848,7 +848,7 @@ GameObject:
   - component: {fileID: 289696432}
   - component: {fileID: 289696431}
   - component: {fileID: 289696430}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1018,7 +1018,7 @@ GameObject:
   - component: {fileID: 316133663}
   - component: {fileID: 316133662}
   - component: {fileID: 316133661}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1330,7 +1330,7 @@ GameObject:
   - component: {fileID: 374846036}
   - component: {fileID: 374846035}
   - component: {fileID: 374846034}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9056,6 +9056,11 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 8822584234185225843, guid: 7355a60d9aa2fe84dba94614084cda9a, type: 3}
   m_PrefabInstance: {fileID: 1124911853}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &808734891 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 589323357165005859, guid: 7355a60d9aa2fe84dba94614084cda9a, type: 3}
+  m_PrefabInstance: {fileID: 1124911853}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &864269822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9746,7 +9751,7 @@ GameObject:
   - component: {fileID: 1034061623}
   - component: {fileID: 1034061622}
   - component: {fileID: 1034061621}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10250,7 +10255,7 @@ Transform:
   m_GameObject: {fileID: 1209679393}
   serializedVersion: 2
   m_LocalRotation: {x: 0.087155744, y: 0, z: 0, w: 0.9961947}
-  m_LocalPosition: {x: -51.53, y: 3.0900002, z: -8}
+  m_LocalPosition: {x: -53.87, y: 2.85, z: -9.558241}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10804,7 +10809,7 @@ GameObject:
   - component: {fileID: 1314184761}
   - component: {fileID: 1314184760}
   - component: {fileID: 1314184759}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11093,7 +11098,7 @@ GameObject:
   - component: {fileID: 1408331439}
   - component: {fileID: 1408331438}
   - component: {fileID: 1408331437}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11201,7 +11206,7 @@ GameObject:
   - component: {fileID: 1430607855}
   - component: {fileID: 1430607854}
   - component: {fileID: 1430607853}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12176,7 +12181,7 @@ MonoBehaviour:
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
   Target:
-    TrackingTarget: {fileID: 0}
+    TrackingTarget: {fileID: 808734891}
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
@@ -12208,7 +12213,7 @@ Transform:
   m_GameObject: {fileID: 1708880929}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -51.53, y: 1.52, z: -0}
+  m_LocalPosition: {x: -53.87, y: 1.28, z: -1.5582409}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12670,7 +12675,7 @@ GameObject:
   - component: {fileID: 1970144507}
   - component: {fileID: 1970144506}
   - component: {fileID: 1970144505}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13285,7 +13290,7 @@ GameObject:
   - component: {fileID: 2096618589}
   - component: {fileID: 2096618588}
   - component: {fileID: 2096618587}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13398,7 +13403,7 @@ GameObject:
   - component: {fileID: 2142635509}
   - component: {fileID: 2142635508}
   - component: {fileID: 2142635507}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

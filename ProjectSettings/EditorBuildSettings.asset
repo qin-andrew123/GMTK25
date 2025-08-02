@@ -6,8 +6,38 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Test/PlayerMovementTestScene.unity
+    guid: 8124e5870f4fd4c779e7a5f994e84ad1
+  - enabled: 1
+    path: Assets/Scenes/Test/LevelBlockout_3.unity
+    guid: ccfd2dd374cc3074e8c54b58de4c92ac
+  - enabled: 1
     path: Assets/Scenes/Test/2.5D_Test.unity
     guid: 6d259ff092fa13b40a4cba253d8fa1c4
+  - enabled: 1
+    path: Assets/Scenes/Test/CodeLayer.unity
+    guid: 164f911f58c3ea64aaa11be054fee49c
+  - enabled: 1
+    path: Assets/Scenes/Test/LevelBlockout_1.unity
+    guid: 4f45a2dd809f95b428f66e35c1cb8421
+  - enabled: 1
+    path: Assets/Scenes/Test/Greybox.unity
+    guid: 3c299a2c0ce74a244810be1834f6558a
+  - enabled: 1
+    path: Assets/Scenes/Test/LevelCompleteScene.unity
+    guid: 96dc17d1c656142468cdee28baba8ed5
+  - enabled: 1
+    path: Assets/Scenes/Test/LevelBlockout_2.unity
+    guid: dfa5df88c83fcc24abdf6754c78cb541
+  - enabled: 1
+    path: Assets/Scenes/Test/SoundTest.unity
+    guid: 119b24302cd4ef243b3db1014353f151
+  - enabled: 1
+    path: Assets/Scenes/Test/UIPlatforming.unity
+    guid: f5c1cd367d3dea2449bea660f89c610c
+  - enabled: 1
+    path: Assets/Scenes/Test/UIReal.unity
+    guid: f4c469914d1534e4d8e0422b9b9ed6e9
   - enabled: 1
     path: Assets/Scenes/Test/2.5D_CodeWrld.unity
     guid: 00e7a142095a5764da3dc7c695b0b1e0

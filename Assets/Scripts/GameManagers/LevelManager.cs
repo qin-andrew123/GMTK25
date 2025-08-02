@@ -8,7 +8,12 @@ public class LevelManager : MonoBehaviour
 {
     private Dictionary<string, SpawnPoint> mSpawnPoints;
 
-    public void Initialize(Vector3 startingPosition)
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
+    public void Initialize(Transform startingPosition)
     {
         if (mSpawnPoints == null)
         {
@@ -58,13 +63,14 @@ public class LevelManager : MonoBehaviour
 
         GlobalVariables.Instance.PlayerRef.transform.position = spawnPoint.transform.position;
     }
-    public void MovePlayerToPosition(Vector3 position)
+    public void MovePlayerToPosition(Transform transform)
     {
-        GlobalVariables.Instance.PlayerRef.transform.position = position;
+        GlobalVariables.Instance.PlayerRef.transform.position = transform.position;
     }
     public void HandleMovePlayerToNewLevel(string LevelName)
     {
         SceneManager.LoadScene(LevelName);
+
     }
     public void HandleReloadLevel()
     {

@@ -33,7 +33,7 @@ public class PlayerAbilities : MonoBehaviour
 
             bHasTriggeredGlitch = true;
             Glitch();
-            StartCoroutine(AbilityCooldown());
+            StartCoroutine(GlitchCooldown());
         }
         else if((grabInput >= 1.0f) && !bHasTriggeredGrab)
         {
