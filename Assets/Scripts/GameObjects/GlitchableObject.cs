@@ -6,8 +6,6 @@ public class GlitchableObject : MonoBehaviour
 {
     [SerializeField]
     private TextMeshPro mInteractText;
-    [SerializeField, Tooltip("The name of the spawnpoint that you want to transport the player to when you glitch")]
-    private string mLevelToGlitchTo = "";
     [SerializeField]
     private Transform mLocationToGlitchTo;
     void Awake()
@@ -25,19 +23,14 @@ public class GlitchableObject : MonoBehaviour
     public void GlitchEffect()
     {
         Debug.Log("This is a glitch effect");
-        if(mLevelToGlitchTo.Length == 0)
+        GlobalVariables.Instance.LevelManager.MovePlayerToPosition(mLocationToGlitchTo);
+
+        PlayerMovement3D playerMovement = GlobalVariables.Instance.PlayerRef.gameObject.GetComponent<PlayerMovement3D>();
+        if (!playerMovement)
         {
-            Debug.LogWarning(gameObject.name + " has an empty string for mLevelToGlitchTo");
+            Debug.LogWarning("PlayerMovement3d is null on playerref");
             return;
         }
-        //GlobalVariables.Instance.LevelManager.HandleMovePlayerToNewLevel(mLevelToGlitchTo);
-        GlobalVariables.Instance.LevelManager.MovePlayerToPosition(mLocationToGlitchTo);
-        
-    }
-
-    private IEnumerator AddSelfToManager()
-    {
-        yield return new WaitUntil(() => GlobalVariables.Instance.GlitchManager != null);
-        GlobalVariables.Instance.GlitchManager.AddGlitchableObject(this);
+        playerMovement.IsDashing = false;
     }
 }

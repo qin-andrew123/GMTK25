@@ -1,8 +1,10 @@
+using System;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class PlayerMovement3D : MonoBehaviour
 {
+    public static event Action OnDashComplete;
     private struct FrameInput
     {
         public Vector3 mInputVector;
@@ -13,14 +15,31 @@ public class PlayerMovement3D : MonoBehaviour
     private PlayerMovementData mPlayerData;
     private Rigidbody mRigidbody;
     private CapsuleCollider mCapsuleCollider;
-    private bool bHasZHitWall = false;
-    private bool bHasXHitWall = false;
     private float mTimeLeftGrounded = float.MinValue;
     private float mTimeOfJump = float.MinValue;
     private Vector3 mFrameVelocityVector;
     private FrameInput mFrameInput;
+    private Vector3 mLastFrameInputDirection;
+    private Vector3 mCalculatedDashDirection;
+    private Vector3 mDashDirectionalVector;
+    private float mDashDistance;
     private float halfHeight = 0.0f;
     private float height = 0.0f;
+    private bool bIsDashing = false;
+    private float mDashTimer = 0.0f;
+    public bool IsDashing
+    {
+        get { return bIsDashing; }
+        set
+        {
+            bIsDashing = value;
+            if (!bIsDashing)
+            {
+                OnDashComplete?.Invoke();
+                mDashTimer = 0;
+            }
+        }
+    }
     // TODO: Slope Handling
     // TODO: Wall Jumping/sliding? Maybe? 
 
@@ -29,11 +48,6 @@ public class PlayerMovement3D : MonoBehaviour
 
     public Animator mAnimator;
     public SpriteRenderer mSpriteRenderer;
-
-    //void Awake()
-    //{
-    //    DontDestroyOnLoad(gameObject);
-    //}
 
     void Start()
     {
@@ -49,12 +63,6 @@ public class PlayerMovement3D : MonoBehaviour
             Debug.LogAssertion("There is no Rigidbody attached to Player GameObject.");
             return;
         }
-
-        //if (mRigidbody.bodyType != RigidbodyType2D.Kinematic)
-        //{
-        //    Debug.LogWarning("Rigidbody2D is not set to kinematic. We Should change this in editor.");
-        //    mRigidbody.bodyType = RigidbodyType2D.Kinematic;
-        //}
 
         mCapsuleCollider = GetComponent<CapsuleCollider>();
         if (!mCapsuleCollider)
@@ -72,6 +80,11 @@ public class PlayerMovement3D : MonoBehaviour
         float XInput = Input.GetAxisRaw("Horizontal");
         float ZInput = Input.GetAxisRaw("Vertical");
 
+        if (mFrameInput.mInputVector != Vector3.zero)
+        {
+            mLastFrameInputDirection = mFrameInput.mInputVector;
+        }
+
         mFrameInput.mInputVector = new Vector3(XInput, 0.0f, ZInput);
         mFrameInput.bIsJumpPressedDown = Input.GetButtonDown("Jump");
         mFrameInput.bIsJumpHeldDown = Input.GetButton("Jump");
@@ -86,26 +99,70 @@ public class PlayerMovement3D : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Grav First
-
-        HandleJump();
-        HandleGravity();
-        HandleXDirection();
-        HandleZDirection();
-        HandleCollision();
-
-        Vector3 calculatedMove = mFrameVelocityVector * Time.fixedDeltaTime;
-        mRigidbody.MovePosition(mRigidbody.position + calculatedMove);
-
-        mAnimator.SetFloat("Speed", mFrameInput.mInputVector.magnitude);
-
-        if (mFrameInput.mInputVector.x < 0)
+        if (bIsDashing)
         {
-            mSpriteRenderer.flipX = true;
+            mAnimator.SetFloat("Speed", mDashDirectionalVector.magnitude);
+
+            if (mDashDirectionalVector.x < 0)
+            {
+                mSpriteRenderer.flipX = true;
+            }
+            else
+            {
+                mSpriteRenderer.flipX = false;
+            }
+            mRigidbody.MovePosition(Vector3.MoveTowards(mRigidbody.position, mCalculatedDashDirection, mPlayerData.DashDuration * Time.fixedDeltaTime));
+            HandleCollision();
+
+            Vector3 pointOne = mCapsuleCollider.bounds.center + mCapsuleCollider.transform.up * (halfHeight / 2);
+            Vector3 pointTwo = mCapsuleCollider.bounds.center - mCapsuleCollider.transform.up * (halfHeight / 2);
+            Collider[] hits = Physics.OverlapCapsule(
+                        pointOne,
+                        pointTwo,
+                        mCapsuleCollider.radius,
+                        mPlayerData.GlitchLayers);
+            if (hits.Length != 0)
+            {
+                foreach(var hit in hits)
+                {
+                    GlitchableObject glitchableObject = hit.gameObject.GetComponent<GlitchableObject>();
+                    if (glitchableObject)
+                    {
+                        glitchableObject.GlitchEffect();
+                        break;
+                    }
+                }
+            }
+
+            if (mRigidbody.position == mCalculatedDashDirection)
+            {
+                OnDashComplete?.Invoke();
+                bIsDashing = false;
+                mDashTimer = 0;
+            }
         }
         else
         {
-            mSpriteRenderer.flipX = false;
+            // Grav First
+            HandleJump();
+            HandleGravity();
+            HandleXDirection();
+            HandleZDirection();
+            HandleCollision();
+
+            Vector3 calculatedMove = mFrameVelocityVector * Time.fixedDeltaTime;
+            mRigidbody.MovePosition(mRigidbody.position + calculatedMove);
+
+            mAnimator.SetFloat("Speed", mFrameInput.mInputVector.magnitude);
+
+            if (mFrameInput.mInputVector.x < 0)
+            {
+                mSpriteRenderer.flipX = true;
+            }
+            else
+            {
+                mSpriteRenderer.flipX = false;
+            }
         }
     }
 
@@ -274,6 +331,31 @@ public class PlayerMovement3D : MonoBehaviour
 
             mFrameVelocityVector.y = Mathf.MoveTowards(mFrameVelocityVector.y, -mPlayerData.TerminalVelocity, gravityEffect * Time.fixedDeltaTime);
         }
+    }
+
+    public void Dash()
+    {
+        // Directional vector = minputframe.inputvector unless it's zero then it's the last known facing direction
+        mDashDirectionalVector = mFrameInput.mInputVector != Vector3.zero ? mFrameInput.mInputVector : (mLastFrameInputDirection == Vector3.zero ? Vector3.right : mLastFrameInputDirection);
+        mDashDirectionalVector.Normalize();
+
+        mDashDistance = mPlayerData.DashDistance;
+        // One raycast in this direction for collision
+        Vector3 pointOne = mCapsuleCollider.bounds.center + mCapsuleCollider.transform.up * halfHeight;
+        Vector3 pointTwo = mCapsuleCollider.bounds.center - mCapsuleCollider.transform.up * halfHeight;
+        if (Physics.CapsuleCast(
+                    pointOne,
+                    pointTwo,
+                    mCapsuleCollider.radius,
+                    mDashDirectionalVector,
+                    out RaycastHit collisionHit,
+                    mDashDistance,
+                    mPlayerData.HittableLayers))
+        {
+            mDashDistance = collisionHit.distance - mPlayerData.PlayerCapsuleOffset;
+        }
+        mCalculatedDashDirection = mRigidbody.position + mDashDirectionalVector * mDashDistance;
+
     }
 }
 
