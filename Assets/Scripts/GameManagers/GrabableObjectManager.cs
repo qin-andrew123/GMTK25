@@ -5,7 +5,7 @@ public class GrabableObjectManager : MonoBehaviour
 {
     public static GrabableObjectManager Instance;
     [SerializeField]
-    private float DetectionRadius;
+    private float mGrabDetectionRadius;
     public List<GrabableObject> mManagedObjects = new List<GrabableObject>();
     private GrabableObject bestCandidate = null;
     private GameObject mPlayerRef = null;
@@ -22,6 +22,18 @@ public class GrabableObjectManager : MonoBehaviour
         {
             mPlayerRef = GameObject.FindGameObjectWithTag("Player");
         }
+
+        DontDestroyOnLoad(gameObject);
+    }
+
+    public void Initialize(float grabbableDistance)
+    {
+        if (mManagedObjects == null)
+        {
+            mManagedObjects = new List<GrabableObject>();
+        }
+
+        mGrabDetectionRadius = grabbableDistance;
     }
 
     public void AddGrabableObject(GrabableObject grabableObject)
@@ -56,7 +68,7 @@ public class GrabableObjectManager : MonoBehaviour
         foreach (GrabableObject obj in mManagedObjects)
         {
             float testDistance = Vector3.Distance(playerPosition, obj.transform.position);
-            if (testDistance < bestDistance && testDistance <= DetectionRadius)
+            if (testDistance < bestDistance && testDistance <= mGrabDetectionRadius)
             {
                 bestCandidate = obj;
                 bestDistance = testDistance;
