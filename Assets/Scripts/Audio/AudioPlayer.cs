@@ -36,10 +36,13 @@ public class AudioPlayer : MonoBehaviour
             AudioSource audioSource = transform.AddComponent<AudioSource>();
             mSources.Add(audioSource);
             audioSource.resource = audioEvent.mSound[soundIndex];
+            //audioSource.outputAudioMixerGroup = AudioManager.Instance.SFXMixer;
             audioSource.spatialBlend = audioEvent.mSpatialBlend;
             audioSource.volume = audioEvent.mVolumeScale;
             audioSource.loop = audioEvent.bIsLoop;
-            audioSource.outputAudioMixerGroup = AudioManager.Instance.SFXMixer;
+            audioSource.spatialize = true;
+            audioSource.maxDistance = audioEvent.mMaxDistance;
+            audioSource.rolloffMode = AudioRolloffMode.Linear;
             audioSource.Play();
 
             return audioSource;
@@ -76,6 +79,7 @@ public class AudioPlayer : MonoBehaviour
             audioSource.resource = audioEvent.mSound[soundIndex];
             audioSource.volume = audioEvent.mVolumeScale;
             audioSource.loop = audioEvent.bIsLoop;
+            audioSource.outputAudioMixerGroup = AudioManager.Instance.SFXMixer;
             audioSource.Play();
             return audioSource;
         }

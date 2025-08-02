@@ -10,14 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6307a4bcec1792846ab69a6ecbd6931f, type: 3}
-  m_Name: BGM
+  m_Name: LevelCompleteStinger
   m_EditorClassIdentifier: 
-  mSound:
-  - {fileID: 8300000, guid: 9ea09b6eb7403ed42bd6dd8882e27502, type: 3}
-  - {fileID: 8300000, guid: e8a15b6fc175b38458a646d86be12504, type: 3}
-  - {fileID: 8300000, guid: 397dc1f6187443e439f86710f1239838, type: 3}
+  mSound: []
   bIsSpatial: 0
-  bIsLoop: 1
-  mVolumeScale: 0.7
+  bIsLoop: 0
+  mVolumeScale: 1
   mSpatialBlend: 0
   mMaxDistance: 0

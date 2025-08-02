@@ -175,6 +175,7 @@ MonoBehaviour:
   mDashVFX: {fileID: 2249706469418024254}
   mGlitchCooldown: 1
   mGrabCooldown: 0.55
+  mGrabbedItemUsedCooldown: 1
 --- !u!95 &3406916101746784844
 Animator:
   serializedVersion: 7

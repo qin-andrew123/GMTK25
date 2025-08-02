@@ -8,6 +8,9 @@ TagManager:
   - AudioBlocker
   - DarknessVolume
   - Grass
+  - Ground
+  - ObjectInteractable
+  - GlitchableObject
   layers:
   - Default
   - TransparentFX
@@ -23,8 +26,8 @@ TagManager:
   - Player
   - Ground
   - GlitchableObject
-  - 
-  - 
+  - ObjectInteractable
+  - PlayerBullet
   - 
   - 
   - 

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 734551084624209353}
-  - component: {fileID: 8870647006233242983}
+  - component: {fileID: -8677183426191396238}
   m_Layer: 0
   m_Name: Grabable_Volume
   m_TagString: Untagged
@@ -39,7 +39,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 2.19}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8870647006233242983
+--- !u!114 &-8677183426191396238
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -48,10 +48,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 793152275065481791}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2119f2cd6facc6f4190233f261b3cf5c, type: 3}
+  m_Script: {fileID: 11500000, guid: 9336f2e054ce2e44c9d61dab17aeb3c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mInteractText: {fileID: 8637835294317011395}
+  bGlitchAudio: 0
+  mBulletPrefab: {fileID: 74368224137970849, guid: f6e20375ceea14e44bfb91fdbaea82f6, type: 3}
+  mFirePoint: {fileID: 9165949730987283893}
 --- !u!1 &1007117918481024094
 GameObject:
   m_ObjectHideFlags: 0
