@@ -1,6 +1,7 @@
 using System;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
+using static Unity.Cinemachine.IInputAxisOwner.AxisDescriptor;
 
 public class PlayerMovement3D : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class PlayerMovement3D : MonoBehaviour
     private float halfHeight = 0.0f;
     private float height = 0.0f;
     private bool bIsDashing = false;
-    private float mDashTimer = 0.0f;
+    private float mDashRecentTime = 0.0f;
     public bool IsDashing
     {
         get { return bIsDashing; }
@@ -36,7 +37,7 @@ public class PlayerMovement3D : MonoBehaviour
             if (!bIsDashing)
             {
                 OnDashComplete?.Invoke();
-                mDashTimer = 0;
+                mDashRecentTime = 0;
             }
         }
     }
@@ -99,7 +100,18 @@ public class PlayerMovement3D : MonoBehaviour
         }
 
     }
-
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("GlitchableObject") && (bIsDashing || mDashRecentTime + 0.1f > Time.time ))
+        {
+            Debug.Log("OnCollisionEnter: GlitchableObj");
+            GlitchableObject glitchableObject = collision.gameObject.GetComponent<GlitchableObject>();
+            if (glitchableObject)
+            {
+                glitchableObject.GlitchEffect();
+            }
+        }
+    }
     private void FixedUpdate()
     {
         if (bIsDashing)
@@ -114,38 +126,26 @@ public class PlayerMovement3D : MonoBehaviour
             {
                 mSpriteRenderer.flipX = false;
             }
-            mRigidbody.MovePosition(Vector3.MoveTowards(mRigidbody.position, mCalculatedDashDirection, mPlayerData.DashDuration * Time.fixedDeltaTime));
             HandleCollision();
 
-            Vector3 pointOne = mCapsuleCollider.bounds.center + mCapsuleCollider.transform.up * (halfHeight / 2);
-            Vector3 pointTwo = mCapsuleCollider.bounds.center - mCapsuleCollider.transform.up * (halfHeight / 2);
-            Collider[] hits = Physics.OverlapCapsule(
-                        pointOne,
-                        pointTwo,
-                        mCapsuleCollider.radius,
-                        mPlayerData.GlitchLayers);
-            if (hits.Length != 0)
-            {
-                foreach (var hit in hits)
-                {
-                    GlitchableObject glitchableObject = hit.gameObject.GetComponent<GlitchableObject>();
-                    if (glitchableObject)
-                    {
-                        glitchableObject.GlitchEffect();
-                        break;
-                    }
-                }
-            }
+            Vector3 pointOne = mCapsuleCollider.bounds.center + mCapsuleCollider.transform.up * (halfHeight);
+            Vector3 pointTwo = mCapsuleCollider.bounds.center - mCapsuleCollider.transform.up * (halfHeight);
+            CheckIfOverlappingGlitch(pointOne, pointTwo);
+            mRigidbody.MovePosition(Vector3.MoveTowards(mRigidbody.position, mCalculatedDashDirection, mPlayerData.DashDuration * Time.fixedDeltaTime));
 
             if (mRigidbody.position == mCalculatedDashDirection)
             {
+                CheckIfOverlappingGlitch(pointOne, pointTwo);
+                mRigidbody.position = mCalculatedDashDirection;
+                mRigidbody.linearVelocity = Vector3.zero;
                 OnDashComplete?.Invoke();
                 bIsDashing = false;
-                mDashTimer = 0;
+                mDashRecentTime = Time.time;
             }
         }
         else
         {
+            mRigidbody.linearVelocity = Vector3.zero;
             // Grav First
             HandleJump();
             HandleGravity();
@@ -158,6 +158,7 @@ public class PlayerMovement3D : MonoBehaviour
 
             mAnimator.SetFloat("Speed", mFrameInput.mInputVector.magnitude);
 
+            
             if (mFrameInput.mInputVector.x < 0)
             {
                 mSpriteRenderer.flipX = true;
@@ -167,10 +168,28 @@ public class PlayerMovement3D : MonoBehaviour
                 mSpriteRenderer.flipX = false;
             }
             mAnimator.SetBool("isGrounded", mPlayerData.IsGrounded);
-            Debug.Log(mPlayerData.IsGrounded);
         }
     }
-
+    private void CheckIfOverlappingGlitch(Vector3 pointa, Vector3 pointb)
+    {
+        Collider[] hits = Physics.OverlapCapsule(
+            pointa,
+            pointb,
+            mCapsuleCollider.radius + mPlayerData.PlayerCapsuleOffset,
+            mPlayerData.GlitchLayers);
+        if (hits.Length != 0)
+        {
+            foreach (var hit in hits)
+            {
+                GlitchableObject glitchableObject = hit.gameObject.GetComponent<GlitchableObject>();
+                if (glitchableObject)
+                {
+                    glitchableObject.GlitchEffect();
+                    break;
+                }
+            }
+        }
+    }
     private void HandleCollision()
     {
         Vector3 DirectionVector = mFrameVelocityVector;
