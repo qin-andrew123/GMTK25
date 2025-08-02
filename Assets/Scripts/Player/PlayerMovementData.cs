@@ -38,7 +38,10 @@ public class PlayerMovementData : ScriptableObject
     private float mGroundingForce = -0.1f;
     [SerializeField, Tooltip("The Terminal Velocity that you can go. This is a velocity not an acceleration")]
     private float mTerminalVelocity;
-
+    [SerializeField, Tooltip("How far we want to dash")]
+    private float mDashDistance = 5.0f;
+    [SerializeField]
+    private float mDashDuration = 1.0f;
     // Do we want to modify movement attributes at any point?
     public float MovementSpeed
     {
@@ -130,11 +133,21 @@ public class PlayerMovementData : ScriptableObject
     {
         get { return mTerminalVelocity; }
     }
+    public float DashDistance
+    {
+        get { return mDashDistance; }
+    }
+    public float DashDuration
+    {
+        get { return mDashDuration; }
+    }
     [Header("Raycast Information")]
     [SerializeField, Tooltip("How far away we are checking for collision below us")]
     private float mRaycastDistance = 1.0f;
     [SerializeField, Tooltip("What layers do we want to check?")]
     private LayerMask mHittableLayers;
+    [SerializeField, Tooltip("What layers do we want to check for glitchable objects?")]
+    private LayerMask mGlitchLayers;
     [SerializeField, Tooltip("Adding a slight offset to the player capsule to resolve any jitter that may occur")]
     private float mPlayerCapsuleOffset = 0.02f;
     public float RaycastDistance
@@ -144,6 +157,11 @@ public class PlayerMovementData : ScriptableObject
     public LayerMask HittableLayers
     {
         get { return mHittableLayers; }
+    }
+
+    public LayerMask GlitchLayers
+    {
+        get { return mGlitchLayers; }
     }
     public float PlayerCapsuleOffset
     {

@@ -26,8 +26,13 @@ MonoBehaviour:
   mVerticalDeceleration: 50
   mGroundingForce: 0
   mTerminalVelocity: 20
+  mDashDistance: 6
+  mDashDuration: 300
   mRaycastDistance: 0.7
   mHittableLayers:
     serializedVersion: 2
     m_Bits: 4096
+  mGlitchLayers:
+    serializedVersion: 2
+    m_Bits: 8192
   mPlayerCapsuleOffset: 0.9

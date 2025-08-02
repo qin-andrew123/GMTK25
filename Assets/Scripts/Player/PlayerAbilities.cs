@@ -15,7 +15,14 @@ public class PlayerAbilities : MonoBehaviour
     private bool bHasTriggeredGrab = false;
     private GrabableObject mGrabbedItem = null;
 
-
+    private void OnEnable()
+    {
+        PlayerMovement3D.OnDashComplete += GlitchReset;
+    }
+    private void OnDisable()
+    {
+        PlayerMovement3D.OnDashComplete -= GlitchReset;
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -33,9 +40,8 @@ public class PlayerAbilities : MonoBehaviour
 
             bHasTriggeredGlitch = true;
             Glitch();
-            StartCoroutine(GlitchCooldown());
         }
-        else if((grabInput >= 1.0f) && !bHasTriggeredGrab)
+        else if ((grabInput >= 1.0f) && !bHasTriggeredGrab)
         {
             Debug.Log("Grabbing Item");
             bHasTriggeredGrab = true;
@@ -45,20 +51,39 @@ public class PlayerAbilities : MonoBehaviour
 
     private void Glitch()
     {
-        GlitchableObject Target = GlobalVariables.Instance.GlitchManager.GetBestTarget();
-        if (!Target)
+        // Dash
+
+        PlayerMovement3D playerMovement3D = GlobalVariables.Instance.PlayerRef.GetComponent<PlayerMovement3D>();
+        if (!playerMovement3D)
         {
-            Debug.LogWarning("PlayerAbilities.Glitch(): Target Object is null.");
-            bHasTriggeredGlitch = false;
+            Debug.LogAssertion("Player ref does not have a playermovement3d");
             return;
         }
-        Target.GlitchEffect();
-    }
 
+        playerMovement3D.IsDashing = true;
+        playerMovement3D.Dash();
+        //GlitchableObject Target = GlobalVariables.Instance.GlitchManager.GetBestTarget();
+        //if (!Target)
+        //{
+        //    Debug.LogWarning("PlayerAbilities.Glitch(): Target Object is null.");
+        //    bHasTriggeredGlitch = false;
+        //    return;
+        //}
+        //Target.GlitchEffect();
+    }
+    private void GlitchReset()
+    {
+        if (!bHasTriggeredGlitch)
+        {
+            return;
+        }
+
+        StartCoroutine(GlitchCooldown());
+    }
     private void GrabItem()
     {
         // drop item if there is one in hand
-        if(mGrabbedItem)
+        if (mGrabbedItem)
         {
             mGrabbedItem.DropEffect();
             mGrabbedItem = null;
