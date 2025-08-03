@@ -8547,12 +8547,24 @@ PrefabInstance:
       value: Flagpole
       objectReference: {fileID: 0}
     - target: {fileID: 2942034589695158618, guid: 097f7972c94065b4ba6ee887e7130ab8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4345398
+      objectReference: {fileID: 0}
+    - target: {fileID: 2942034589695158618, guid: 097f7972c94065b4ba6ee887e7130ab8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.8199625
+      objectReference: {fileID: 0}
+    - target: {fileID: 2942034589695158618, guid: 097f7972c94065b4ba6ee887e7130ab8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4345398
+      objectReference: {fileID: 0}
+    - target: {fileID: 2942034589695158618, guid: 097f7972c94065b4ba6ee887e7130ab8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 26.86
       objectReference: {fileID: 0}
     - target: {fileID: 2942034589695158618, guid: 097f7972c94065b4ba6ee887e7130ab8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.96
+      value: 2.53
       objectReference: {fileID: 0}
     - target: {fileID: 2942034589695158618, guid: 097f7972c94065b4ba6ee887e7130ab8, type: 3}
       propertyPath: m_LocalPosition.z
