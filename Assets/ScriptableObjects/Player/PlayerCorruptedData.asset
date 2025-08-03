@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerCorruptedData
   m_EditorClassIdentifier: 
   mMovementSpeed: 6
-  mJumpForce: 30
+  mJumpForce: 25
   mJumpCutMultiplier: 1.5
   mGravityStrength: 10
   mBufferedJumpTime: 0.2
