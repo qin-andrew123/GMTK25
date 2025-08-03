@@ -64,7 +64,10 @@ public class GlobalVariables : MonoBehaviour
         }
         mCodeObjectManager.Initialize(mGrabDetectionRadius);
     }
-
+    public void HotReloadLevel()
+    {
+        mLevelManager.HandleReloadLevel();
+    }
     public void UpdateGameObjects(bool bEnable)
     {
         if(mPlatformsToUpdate.Count == 0)
