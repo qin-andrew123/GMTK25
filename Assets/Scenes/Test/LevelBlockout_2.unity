@@ -1889,6 +1889,10 @@ PrefabInstance:
       propertyPath: mLocationToGlitchTo
       value: 
       objectReference: {fileID: 2051348389}
+    - target: {fileID: 4208998823869429382, guid: 49488fe5793c2204d96fa1442e00ce28, type: 3}
+      propertyPath: mDelayBeforeTransport
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 6388033232505731264, guid: 49488fe5793c2204d96fa1442e00ce28, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.4655
@@ -1939,6 +1943,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6388033232505731264, guid: 49488fe5793c2204d96fa1442e00ce28, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9056806035156356741, guid: 49488fe5793c2204d96fa1442e00ce28, type: 3}
+      propertyPath: m_InitialEventNameOverriden
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -8051,7 +8059,6 @@ SceneRoots:
   - {fileID: 1507441109}
   - {fileID: 937936426}
   - {fileID: 26556950}
-  - {fileID: 590891939}
   - {fileID: 1834673930825864191}
   - {fileID: 849560006}
   - {fileID: 1502649276}
@@ -8062,5 +8069,6 @@ SceneRoots:
   - {fileID: 261150367}
   - {fileID: 290751693}
   - {fileID: 1951923716}
+  - {fileID: 590891939}
   - {fileID: 372471450}
   - {fileID: 50190085}
