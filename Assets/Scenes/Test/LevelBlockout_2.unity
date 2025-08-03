@@ -296,7 +296,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 2128345633}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -317,7 +317,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 19493367}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -51}
+  m_LocalPosition: {x: 0, y: 0, z: -50.3}
   m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -385,15 +385,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.7798742, g: 0.5602591, b: 0.45370036, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 661c15aa8a85beb43a69c5019861b529, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -807,7 +807,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 734551084624209353, guid: 45365dd798442bb4e9cb2f00d237879a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -51
+      value: -51.1
       objectReference: {fileID: 0}
     - target: {fileID: 734551084624209353, guid: 45365dd798442bb4e9cb2f00d237879a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1011,7 +1011,7 @@ PrefabInstance:
       objectReference: {fileID: 1262256732}
     - target: {fileID: 6388033232505731264, guid: 49488fe5793c2204d96fa1442e00ce28, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.07
+      value: -14.72
       objectReference: {fileID: 0}
     - target: {fileID: 6388033232505731264, guid: 49488fe5793c2204d96fa1442e00ce28, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3284,6 +3284,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 901149717}
   m_CullTransparentMesh: 1
+--- !u!1 &923164940 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5611669433992006705, guid: 0dd77e10803751e4aa2552755bb680cc, type: 3}
+  m_PrefabInstance: {fileID: 4310409032297617887}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &937936426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3873,6 +3878,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1011080191}
   m_CullTransparentMesh: 1
+--- !u!1 &1035370679 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3226082251571155667, guid: bb48d647329e7f948926d2c45a4098b3, type: 3}
+  m_PrefabInstance: {fileID: 849560006}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1044518717
 GameObject:
   m_ObjectHideFlags: 0
@@ -4530,6 +4540,10 @@ PrefabInstance:
       value: GlobalVariables
       objectReference: {fileID: 0}
     - target: {fileID: 6615303908782867827, guid: 4ea3d191480cafa4da859a39a6b23de2, type: 3}
+      propertyPath: mDarknessVolume
+      value: 
+      objectReference: {fileID: 923164940}
+    - target: {fileID: 6615303908782867827, guid: 4ea3d191480cafa4da859a39a6b23de2, type: 3}
       propertyPath: mStartingPosition
       value: 
       objectReference: {fileID: 898784953}
@@ -4537,6 +4551,14 @@ PrefabInstance:
       propertyPath: mStartingPosition.x
       value: -52
       objectReference: {fileID: 0}
+    - target: {fileID: 6615303908782867827, guid: 4ea3d191480cafa4da859a39a6b23de2, type: 3}
+      propertyPath: mSoundBarriersToUpdate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615303908782867827, guid: 4ea3d191480cafa4da859a39a6b23de2, type: 3}
+      propertyPath: 'mSoundBarriersToUpdate.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1035370679}
     - target: {fileID: 7777452720098782058, guid: 4ea3d191480cafa4da859a39a6b23de2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -56
@@ -6934,7 +6956,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1059439724523359170, guid: a4baf7df695cb1f4ea2f405170028ac5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -51
+      value: -51.1
       objectReference: {fileID: 0}
     - target: {fileID: 1059439724523359170, guid: a4baf7df695cb1f4ea2f405170028ac5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6967,6 +6989,10 @@ PrefabInstance:
     - target: {fileID: 3392529096123393724, guid: a4baf7df695cb1f4ea2f405170028ac5, type: 3}
       propertyPath: m_Name
       value: Grabable_Lighting
+      objectReference: {fileID: 0}
+    - target: {fileID: 6529232243027832798, guid: a4baf7df695cb1f4ea2f405170028ac5, type: 3}
+      propertyPath: mUseRadius
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
