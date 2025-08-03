@@ -487,6 +487,67 @@ VideoPlayer:
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
+--- !u!1001 &1024348110
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4993285505856883941, guid: a4662663446fa0b45aa8f02eff9dc774, type: 3}
+      propertyPath: mAudioLevelState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8223762741250151451, guid: a4662663446fa0b45aa8f02eff9dc774, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.259988
+      objectReference: {fileID: 0}
+    - target: {fileID: 8223762741250151451, guid: a4662663446fa0b45aa8f02eff9dc774, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.129196
+      objectReference: {fileID: 0}
+    - target: {fileID: 8223762741250151451, guid: a4662663446fa0b45aa8f02eff9dc774, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.0092945
+      objectReference: {fileID: 0}
+    - target: {fileID: 8223762741250151451, guid: a4662663446fa0b45aa8f02eff9dc774, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8223762741250151451, guid: a4662663446fa0b45aa8f02eff9dc774, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8223762741250151451, guid: a4662663446fa0b45aa8f02eff9dc774, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8223762741250151451, guid: a4662663446fa0b45aa8f02eff9dc774, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8223762741250151451, guid: a4662663446fa0b45aa8f02eff9dc774, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8223762741250151451, guid: a4662663446fa0b45aa8f02eff9dc774, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8223762741250151451, guid: a4662663446fa0b45aa8f02eff9dc774, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8916694477575237236, guid: a4662663446fa0b45aa8f02eff9dc774, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a4662663446fa0b45aa8f02eff9dc774, type: 3}
 --- !u!1 &1392251912
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,6 +632,7 @@ GameObject:
   - component: {fileID: 1564868836}
   - component: {fileID: 1564868835}
   - component: {fileID: 1564868834}
+  - component: {fileID: 1564868838}
   m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
@@ -692,6 +754,20 @@ RectTransform:
   m_AnchoredPosition: {x: -300, y: 0}
   m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 1, y: 0.5}
+--- !u!114 &1564868838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564868833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb3749f0911fed740b369cb9645d0b12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mClickSFX: {fileID: 11400000, guid: 5d6dddecaa9a3074383c9395ef498983, type: 2}
+  mHoverSFX: {fileID: 11400000, guid: f1d2bfd492e122b419ea5ce3b2fc8157, type: 2}
 --- !u!1 &1644980365
 GameObject:
   m_ObjectHideFlags: 0
@@ -1188,7 +1264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mVideoPlayer: {fileID: 789197922}
   mPlayButton: {fileID: 1564868834}
-  mTextMeshProUGUI: {fileID: 0}
+  mTextMeshProUGUI: {fileID: 1644980367}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1197,3 +1273,4 @@ SceneRoots:
   - {fileID: 1736593514}
   - {fileID: 1799498448}
   - {fileID: 645676195}
+  - {fileID: 1024348110}
