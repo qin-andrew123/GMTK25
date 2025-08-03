@@ -8,47 +8,44 @@ public class GrabableObject : MonoBehaviour
     private TextMeshPro mInteractText;
     [SerializeField]
     private bool bGlitchAudio = false;
+    public virtual void UseGrabableObject(Vector3 pixelSpaceMouseInput) { }
     private void OnEnable()
     {
         StartCoroutine(AddSelfToManager());
-        PlayerAbilities.OnUsedGrabbedItem += UseGrabableObject;
     }
     private void OnDisable()
     {
-        PlayerAbilities.OnUsedGrabbedItem -= UseGrabableObject;
     }
     private void OnDestroy()
     {
-        GrabableObjectManager.Instance.RemoveGrabableObject(this);
-        PlayerAbilities.OnUsedGrabbedItem -= UseGrabableObject;
+        GlobalVariables.Instance.GrabableObjectManager.RemoveGrabableObject(this);
     }
-    protected virtual void UseGrabableObject(Vector3 pixelSpaceMouseInput) { }
     public void ChangeInteractTextStatus(bool bShouldbeEnabled)
     {
         mInteractText.enabled = bShouldbeEnabled;
     }
-    public void GrabEffect()
+    public virtual void GrabEffect()
     {
         Debug.Log("this is a grab effect");
         transform.localPosition = Vector3.zero;
         ChangeInteractTextStatus(false);
-        GrabableObjectManager.Instance.RemoveGrabableObject(this);
+        GlobalVariables.Instance.GrabableObjectManager.RemoveGrabableObject(this);
         if (bGlitchAudio)
         {
             AudioManager.Instance.SetGlitchLevel(1);
         }
     }
 
-    public void DropEffect()
+    public virtual void DropEffect()
     {
         Debug.Log("Drop");
         transform.SetParent(null);
-        GrabableObjectManager.Instance.AddGrabableObject(this);
+        GlobalVariables.Instance.GrabableObjectManager.AddGrabableObject(this);
     }
 
     private IEnumerator AddSelfToManager()
     {
-        yield return new WaitUntil(() => GrabableObjectManager.Instance != null);
-        GrabableObjectManager.Instance.AddGrabableObject(this);
+        yield return new WaitUntil(() => GlobalVariables.Instance.GrabableObjectManager != null);
+        GlobalVariables.Instance.GrabableObjectManager.AddGrabableObject(this);
     }
 }

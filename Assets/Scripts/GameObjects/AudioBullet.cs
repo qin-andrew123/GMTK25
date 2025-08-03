@@ -21,7 +21,7 @@ public class AudioBullet : MonoBehaviour
     {
         mRigidBody.linearVelocity = mBulletSpeed * moveDirection;
         mTravelDistance = Vector3.Distance(mStartPosition, mRigidBody.position);
-        if(mTravelDistance >= MAX_TRAVEL_DIST)
+        if (mTravelDistance >= MAX_TRAVEL_DIST)
         {
             Destroy(gameObject);
             return;
@@ -32,9 +32,10 @@ public class AudioBullet : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("ObjectInteractable"))
         {
-            // Break the thing or whatever
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
         }
-        else if (collision.gameObject.CompareTag("Ground")|| collision.gameObject.CompareTag("Player"))
+        else if (collision.gameObject.CompareTag("Ground") || collision.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
         }

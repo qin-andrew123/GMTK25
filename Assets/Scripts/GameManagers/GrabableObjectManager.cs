@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class GrabableObjectManager : MonoBehaviour
 {
-    public static GrabableObjectManager Instance;
     [SerializeField]
     private float mGrabDetectionRadius;
     public List<GrabableObject> mManagedObjects = new List<GrabableObject>();
@@ -11,13 +10,6 @@ public class GrabableObjectManager : MonoBehaviour
     private GameObject mPlayerRef = null;
     void Awake()
     {
-        if (Instance != null)
-        {
-            Instance = null;
-        }
-
-        Instance = this;
-
         if (!mPlayerRef)
         {
             mPlayerRef = GameObject.FindGameObjectWithTag("Player");
