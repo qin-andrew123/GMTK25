@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 4
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -11896,18 +11896,6 @@ PrefabInstance:
       value: Flagpole
       objectReference: {fileID: 0}
     - target: {fileID: 2942034589695158618, guid: 097f7972c94065b4ba6ee887e7130ab8, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.5820093
-      objectReference: {fileID: 0}
-    - target: {fileID: 2942034589695158618, guid: 097f7972c94065b4ba6ee887e7130ab8, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 5.116341
-      objectReference: {fileID: 0}
-    - target: {fileID: 2942034589695158618, guid: 097f7972c94065b4ba6ee887e7130ab8, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5820093
-      objectReference: {fileID: 0}
-    - target: {fileID: 2942034589695158618, guid: 097f7972c94065b4ba6ee887e7130ab8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.04
       objectReference: {fileID: 0}
@@ -11948,45 +11936,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7179753774159226408, guid: 097f7972c94065b4ba6ee887e7130ab8, type: 3}
-      propertyPath: mLevelNumber
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7179753774159226408, guid: 097f7972c94065b4ba6ee887e7130ab8, type: 3}
-      propertyPath: mLevelToLoad
-      value: LevelCompleteScene
-      objectReference: {fileID: 0}
-    - target: {fileID: 7179753774159226408, guid: 097f7972c94065b4ba6ee887e7130ab8, type: 3}
-      propertyPath: respawnPosition
-      value: 
-      objectReference: {fileID: 1231551975}
-    - target: {fileID: 7179753774159226408, guid: 097f7972c94065b4ba6ee887e7130ab8, type: 3}
       propertyPath: mRespawnPosition
       value: 
       objectReference: {fileID: 1231551975}
-    - target: {fileID: 7644685442305652295, guid: 097f7972c94065b4ba6ee887e7130ab8, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 352a3ed669acdc849b46da917dc9a60a, type: 2}
-    - target: {fileID: 8177186355053473574, guid: 097f7972c94065b4ba6ee887e7130ab8, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 8465d26e797f03848b6a55fe77ee1bb5, type: 2}
-    - target: {fileID: 8393682968932406321, guid: 097f7972c94065b4ba6ee887e7130ab8, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.6244672
-      objectReference: {fileID: 0}
-    - target: {fileID: 8393682968932406321, guid: 097f7972c94065b4ba6ee887e7130ab8, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.75841
-      objectReference: {fileID: 0}
-    - target: {fileID: 8393682968932406321, guid: 097f7972c94065b4ba6ee887e7130ab8, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.03777374
-      objectReference: {fileID: 0}
-    - target: {fileID: 8393682968932406321, guid: 097f7972c94065b4ba6ee887e7130ab8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.84
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
