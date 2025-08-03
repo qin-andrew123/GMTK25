@@ -16,6 +16,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7821f24331c325b459b70a7ce47c6468, type: 3}
   bIsSpatial: 0
   bIsLoop: 0
-  mVolumeScale: 0.5
+  mVolumeScale: 0.6
   mSpatialBlend: 0
   mMaxDistance: 0
