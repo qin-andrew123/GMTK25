@@ -28,6 +28,10 @@ public class PlayerAbilities : MonoBehaviour
     }
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.F5))
+        {
+            GlobalVariables.Instance.HotReloadLevel();
+        }
         bool glitchInput = Input.GetButtonDown("Glitch");
         bool grabInput = Input.GetButtonDown("GrabObject");
         bool useGrabbedObject = Input.GetButtonDown("UseGrabbedObject");

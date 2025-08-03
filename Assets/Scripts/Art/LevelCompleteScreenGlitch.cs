@@ -16,13 +16,18 @@ public class LevelCompleteScreenGlitch : MonoBehaviour
     private AudioEvent mLevelCompleteStinger;
     [SerializeField]
     private AudioEvent mGlitchSFX;
+    [SerializeField]
+    private bool bIsBeginning = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         mVolume.gameObject.SetActive(false);
-        mLevelCompleteStinger.Play2DSound();
-        StartCoroutine(GlitchAndShutdown());
+        if(bIsBeginning)
+        {
+            mLevelCompleteStinger?.Play2DSound();
+            StartCoroutine(GlitchAndShutdown());
+        }
     }
 
     // Update is called once per frame
@@ -33,12 +38,6 @@ public class LevelCompleteScreenGlitch : MonoBehaviour
 
     private IEnumerator GlitchAndShutdown()
     {
-        //float timer = mScreenTime;
-        //while(timer > 0.0f)
-        //{
-        //    mVolume.parameters
-        //    yield return null;
-        //}
         yield return new WaitForSeconds(1.75f);
         mGlitchSFX.Play2DSound();
         yield return new WaitForSeconds(0.25f);
@@ -46,5 +45,14 @@ public class LevelCompleteScreenGlitch : MonoBehaviour
 
         yield return new WaitForSeconds(mScreenTime);
         SceneManager.LoadScene(mSceneToLoad);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Player"))
+        {
+            //mLevelCompleteStinger.Play2DSound();
+            StartCoroutine(GlitchAndShutdown());
+        }
     }
 }

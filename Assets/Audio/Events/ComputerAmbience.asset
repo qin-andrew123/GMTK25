@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6307a4bcec1792846ab69a6ecbd6931f, type: 3}
-  m_Name: PlayerHurt
+  m_Name: ComputerAmbience
   m_EditorClassIdentifier: 
   mSound:
-  - {fileID: 8300000, guid: bc0223d00be467f47966e1b3a444faf2, type: 3}
+  - {fileID: 8300000, guid: 1fa30f585004ca74f8baac7e70aa7e7f, type: 3}
   bIsSpatial: 0
-  bIsLoop: 0
-  mVolumeScale: 0.8
+  bIsLoop: 1
+  mVolumeScale: 1
   mSpatialBlend: 0
   mMaxDistance: 0
