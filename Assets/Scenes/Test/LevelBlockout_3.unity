@@ -3935,7 +3935,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: f0abb194ae2172648a95714c35fd1d13, type: 2}
     - target: {fileID: 6615303908782867827, guid: 4ea3d191480cafa4da859a39a6b23de2, type: 3}
       propertyPath: mPlatformsToUpdate.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6615303908782867827, guid: 4ea3d191480cafa4da859a39a6b23de2, type: 3}
       propertyPath: 'mPlatformsToUpdate.Array.data[0]'
