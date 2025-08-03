@@ -29,12 +29,14 @@ public class AudioManager : MonoBehaviour
     private AudioSource mCodeSource;
     private AudioSource mGameSource;
     private AudioSource mUISource;
+    [SerializeField]
     private AudioLevelState mAudioLevelState = AudioLevelState.Game;
 
     private void Awake()
     {
         if (Instance != null)
         {
+            Instance.SetAudioLevelState(mAudioLevelState);
             Instance.SetGlitchLevel(mCurrentGlitchPreset);
             if (mBGM == null)
             {
@@ -54,6 +56,7 @@ public class AudioManager : MonoBehaviour
 
         Instance = this;
         StartMusic();
+        SetAudioLevelState(mAudioLevelState);
         mAudioPlayer = GetComponent<AudioPlayer>();
         DontDestroyOnLoad(gameObject);
     }
