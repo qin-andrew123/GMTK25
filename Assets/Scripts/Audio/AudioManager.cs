@@ -114,10 +114,7 @@ public class AudioManager : MonoBehaviour
 
     public void SetGlitchLevel(int level)
     {
-        if (level > mCurrentGlitchPreset)
-        {
-            mCurrentGlitchPreset = level;
-        }
+        mCurrentGlitchPreset = level;
     }
 
     public void StartGlitch()
