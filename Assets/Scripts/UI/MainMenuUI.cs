@@ -11,8 +11,6 @@ public class MainMenuUI : MonoBehaviour
     VideoPlayer mVideoPlayer;
     [SerializeField]
     Button mPlayButton;
-    [SerializeField]
-    TextMeshProUGUI mTextMeshProUGUI;
     [SerializeField] AudioEvent mGlitchSFX;
 
     bool mHasDisplayedStuff = false;
@@ -40,7 +38,6 @@ public class MainMenuUI : MonoBehaviour
     {
         mHasDisplayedStuff = true;
         mPlayButton.enabled = true;
-        mTextMeshProUGUI.enabled = true;
     }
 
     public void ProceedToNextLevel()
