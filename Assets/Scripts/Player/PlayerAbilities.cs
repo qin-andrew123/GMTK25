@@ -6,9 +6,9 @@ using System;
 
 public class PlayerAbilities : MonoBehaviour
 {
-    [SerializeField] 
+    [SerializeField]
     private VisualEffect mDashVFX;
-    public static event Action<Vector3> OnUsedGrabbedItem;
+    public static event Action<Vector3, GameObject> OnUsedGrabbedItem;
     [SerializeField]
     private float mGlitchCooldown;
     [SerializeField]
@@ -17,7 +17,7 @@ public class PlayerAbilities : MonoBehaviour
     private bool bHasTriggeredGrab = false;
     private bool bHasUsedItem = false;
     private GrabableObject mGrabbedItem = null;
-
+    public GrabableObject GrabbedItem { get { return GrabbedItem; }  set { mGrabbedItem = value; } }
     private void OnEnable()
     {
         PlayerMovement3D.OnDashComplete += GlitchReset;
@@ -33,20 +33,17 @@ public class PlayerAbilities : MonoBehaviour
         bool useGrabbedObject = Input.GetButtonDown("UseGrabbedObject");
         if (glitchInput && !bHasTriggeredGlitch)
         {
-            Debug.Log("Triggered Glitch");
-
             bHasTriggeredGlitch = true;
             Glitch();
         }
         else if (grabInput && !bHasTriggeredGrab)
         {
-            Debug.Log("Grabbing Item");
             bHasTriggeredGrab = true;
             GrabItem();
         }
-        else if (useGrabbedObject && !bHasUsedItem && mGrabbedItem)
+        else if (useGrabbedObject && !bHasUsedItem && mGrabbedItem != null)
         {
-            OnUsedGrabbedItem?.Invoke(Input.mousePosition);
+            mGrabbedItem.UseGrabableObject(Input.mousePosition);
         }
     }
 
@@ -86,14 +83,14 @@ public class PlayerAbilities : MonoBehaviour
     private void GrabItem()
     {
         // drop item if there is one in hand
-        if (mGrabbedItem)
+        if (mGrabbedItem != null)
         {
             mGrabbedItem.DropEffect();
             mGrabbedItem = null;
         }
         else
         {
-            GrabableObject Target = GrabableObjectManager.Instance.GetBestTarget();
+            GrabableObject Target = GlobalVariables.Instance.GrabableObjectManager.GetBestTarget();
             if (!Target)
             {
                 Debug.LogWarning("PlayerAbilities.Grab(): Target Object is null.");

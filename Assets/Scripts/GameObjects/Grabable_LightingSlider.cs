@@ -4,16 +4,33 @@ public class Grabable_LightingSlider : GrabableObject
 {
     [SerializeField]
     private float mGrabbedItemUsedCooldown;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField]
+    private float mUseRadius;
+    public override void UseGrabableObject(Vector3 pixelSpaceMouseInput)
     {
+        GameObject mDarknessVolume = GlobalVariables.Instance.DarknessVolume;
+        if (!mDarknessVolume)
+        {
+            Debug.LogWarning("Darkness Volume does not exist in current level. Is this correct?");
+            GlobalVariables.Instance.PlayerRef.GetComponent<PlayerAbilities>().ResetUseGrabbedItem(mGrabbedItemUsedCooldown);
+            return;
+        }
 
-    }
+        GameObject player = GlobalVariables.Instance.PlayerRef;
+        if (!player)
+        {
+            Debug.LogAssertion("Player Ref is null.");
+            GlobalVariables.Instance.PlayerRef.GetComponent<PlayerAbilities>().ResetUseGrabbedItem(mGrabbedItemUsedCooldown);
+            return;
+        }
 
-    // Update is called once per frame
-    void Update()
-    {
+        float mCurrentDistance = Vector3.Distance(player.transform.position, mDarknessVolume.transform.position);
 
+        if (mCurrentDistance <= mUseRadius)
+        {
+            bool bIsActive = mDarknessVolume.activeInHierarchy;
+            mDarknessVolume.SetActive(!bIsActive);
+            GlobalVariables.Instance.PlayerRef.GetComponent<PlayerAbilities>().ResetUseGrabbedItem(mGrabbedItemUsedCooldown);
+        }
     }
 }
