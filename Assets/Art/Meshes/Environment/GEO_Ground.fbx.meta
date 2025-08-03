@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c30b20beadaa8c64f85e5863b8db570b
+guid: 5f03ccc0091e0084fb3569a1b4158376
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,7 +7,7 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: LIT_Tilemap
+      name: overworld_tileset_grass
     second: {fileID: 2100000, guid: 61b7b42c0e634df4295d2d8873410e4f, type: 2}
   materials:
     materialImportMode: 2
@@ -93,7 +93,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.03
+    globalScale: 3
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
