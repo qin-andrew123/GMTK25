@@ -310,3 +310,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mInteractText: {fileID: 2611286187402000879}
+  bGlitchAudio: 0
+  mGrabSFX: {fileID: 11400000, guid: bcd24ab10043b2e4eb75e50e979071f4, type: 2}

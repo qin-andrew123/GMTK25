@@ -12,6 +12,8 @@ public class AudioBullet : MonoBehaviour
     private float mBulletSpeed = 20.0f;
     private Vector3 moveDirection = Vector3.right;
     public Vector3 MoveDirection { set { moveDirection = value; } }
+    [SerializeField]
+    private AudioEvent mBreakSFX;
     private void OnEnable()
     {
         mRigidBody = gameObject.GetComponent<Rigidbody>();
@@ -32,6 +34,7 @@ public class AudioBullet : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("ObjectInteractable"))
         {
+            mBreakSFX.Play2DSound();
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }

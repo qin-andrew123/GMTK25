@@ -123,6 +123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mInteractText: {fileID: 0}
+  bGlitchAudio: 0
+  mGrabSFX: {fileID: 11400000, guid: 4e21f91ea201e5049a058dcca0a3505c, type: 2}
 --- !u!1 &8776469621121095150
 GameObject:
   m_ObjectHideFlags: 0

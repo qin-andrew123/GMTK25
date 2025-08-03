@@ -8,9 +8,12 @@ public class Grabbable_VolumeSlider : GrabableObject
     private Transform mFirePoint;
     [SerializeField]
     private float mGrabbedItemUsedCooldown;
+    [SerializeField]
+    private AudioEvent mUseSFX;
 
     public override void UseGrabableObject(Vector3 pixelSpaceMouseInput, GameObject target)
     {
+        mUseSFX.Play2DSound();
         Vector3 bulletShootDirection = Vector3.right;
         Vector3 startingPosition = mFirePoint.transform.position;
         startingPosition = Camera.main.WorldToScreenPoint(startingPosition);

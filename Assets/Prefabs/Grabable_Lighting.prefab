@@ -226,6 +226,7 @@ MonoBehaviour:
   bGlitchAudio: 0
   mGrabbedItemUsedCooldown: 1
   mUseRadius: 5
+  mGrabSFX: {fileID: 11400000, guid: e024b0b2376987144bfc8f90244789ae, type: 2}
 --- !u!1 &7800296391124609882
 GameObject:
   m_ObjectHideFlags: 0
