@@ -66,6 +66,10 @@ public class FlagPole : MonoBehaviour
                 Debug.Log("Load End of Game");
                 SceneManager.LoadScene(mLevelToLoad);
                 break;
+            case 4:
+                Debug.Log("End of Game!");
+                SceneManager.LoadScene(mLevelToLoad);
+                break;
         }
     }
 
