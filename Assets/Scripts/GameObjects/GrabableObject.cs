@@ -45,6 +45,7 @@ public class GrabableObject : MonoBehaviour
         Debug.Log("Drop");
         transform.SetParent(null);
         GlobalVariables.Instance.GrabableObjectManager.AddGrabableObject(this);
+        AudioManager.Instance.GlobalDropSFX.Play2DSound();
     }
 
     private IEnumerator AddSelfToManager()

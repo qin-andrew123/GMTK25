@@ -53,6 +53,9 @@ MonoBehaviour:
   mCurrentGlitchPreset: 0
   MusicMixer: {fileID: -868968247532358626, guid: f597f06cee2345047899fb98d03a20c9, type: 2}
   SFXMixer: {fileID: 5919844241527727670, guid: f597f06cee2345047899fb98d03a20c9, type: 2}
+  GlobalDropSFX: {fileID: 11400000, guid: 7ec36708854e7274098f9c8185622b0b, type: 2}
+  GlobalHurtSFX: {fileID: 11400000, guid: a4bc4f802ffc43743b602b52158ef079, type: 2}
+  CodeGlitchSFX: {fileID: 11400000, guid: 4bcb772ece92eb548aa47f5d3ff7aebe, type: 2}
 --- !u!114 &3532525369663158572
 MonoBehaviour:
   m_ObjectHideFlags: 0

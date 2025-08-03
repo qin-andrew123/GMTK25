@@ -28,6 +28,7 @@ public class Spike : MonoBehaviour
     private void Respawn(GameObject player)
     {
         player.transform.position = respawnPosition.position;
+        AudioManager.Instance.GlobalHurtSFX.Play2DSound();
         // TODO: play respawn glitch VFX
     }
 }
