@@ -6,6 +6,7 @@ using UnityEngine.VFX;
 
 public class GlitchableObject : MonoBehaviour
 {
+
     [SerializeField]
     private VisualEffect mGlitchVFX;
     [SerializeField]
@@ -28,6 +29,8 @@ public class GlitchableObject : MonoBehaviour
     {
         GlobalVariables.Instance.GlitchManager.RemoveGlitchableObject(this);
     }
+
+
     public void ChangeInteractTextStatus(bool bShouldbeEnabled)
     {
         mInteractText.enabled = bShouldbeEnabled;

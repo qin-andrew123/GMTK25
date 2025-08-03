@@ -44,3 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bad6e8f9348734b469277bb1b3886d3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mGlitchDetectionRadius: 5
+  mGrabDetectionRadius: 3
+  mStartingPosition: {fileID: 0}
+  mDarknessVolume: {fileID: 0}
+  mPlatformsToUpdate: []
+  mSoundBarriersToUpdate: []
+  corruptedPlayerMoveData: {fileID: 11400000, guid: f0abb194ae2172648a95714c35fd1d13, type: 2}
+  normalPlayerMoveData: {fileID: 11400000, guid: 76114f57ef4ccf94680a507a424c9286, type: 2}

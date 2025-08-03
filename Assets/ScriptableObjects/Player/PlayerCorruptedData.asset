@@ -15,7 +15,7 @@ MonoBehaviour:
   mMovementSpeed: 6
   mJumpForce: 30
   mJumpCutMultiplier: 1.5
-  mGravityStrength: 60
+  mGravityStrength: 10
   mBufferedJumpTime: 0.2
   mCoyoteTimeFrame: 0.2
   mHorizontalGroundDeceleration: 120

@@ -57,6 +57,7 @@ public class CodeObjectManager : MonoBehaviour
     {
         foreach (CodeSocket obj in mManagedObjects)
         {
+            obj.HasBeenGlitched = false;
             ModifyEffects(obj.EffectType, false);
         }
     }
@@ -65,13 +66,13 @@ public class CodeObjectManager : MonoBehaviour
         switch(type)
         {
             case GlitchEffectType.CHANGE_OBJECTS:
-                GlobalVariables.Instance.UpdateGameObjects(bSetEnable);
+                GlobalVariables.Instance.UpdateGameObjects(!bSetEnable);
                 break;
             case GlitchEffectType.CHANGE_SOUND:
                 GlobalVariables.Instance.UpdateSound(!bSetEnable);
                 break;
             case GlitchEffectType.CHANGE_PHYSICS:
-                GlobalVariables.Instance.UpdatePhysics();
+                GlobalVariables.Instance.UpdatePhysics(bSetEnable);
                 break;
         }
     }

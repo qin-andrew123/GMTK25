@@ -41,8 +41,6 @@ public class PlayerMovement3D : MonoBehaviour
             }
         }
     }
-    // TODO: Slope Handling
-    // TODO: Wall Jumping/sliding? Maybe? 
 
     [SerializeField]
     private AudioEvent mJumpSFX;
@@ -102,7 +100,7 @@ public class PlayerMovement3D : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("GlitchableObject") && (bIsDashing || mDashRecentTime + 0.1f > Time.time))
+        if (collision.gameObject.CompareTag("GlitchableObject") && (bIsDashing))
         {
             Debug.Log("OnCollisionEnter: GlitchableObj");
             GlitchableObject glitchableObject = collision.gameObject.GetComponent<GlitchableObject>();
@@ -110,6 +108,10 @@ public class PlayerMovement3D : MonoBehaviour
             {
                 glitchableObject.GlitchEffect();
             }
+
+            mRigidbody.position = mCalculatedDashDirection;
+            mRigidbody.linearVelocity = Vector3.zero;
+            bIsDashing = false;
         }
     }
     private void FixedUpdate()
@@ -185,6 +187,9 @@ public class PlayerMovement3D : MonoBehaviour
                 if (glitchableObject)
                 {
                     glitchableObject.GlitchEffect();
+                    mRigidbody.position = mCalculatedDashDirection;
+                    mRigidbody.linearVelocity = Vector3.zero;
+                    bIsDashing = false;
                     break;
                 }
             }
