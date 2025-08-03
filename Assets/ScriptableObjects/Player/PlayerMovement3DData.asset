@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerMovement3DData
   m_EditorClassIdentifier: 
   mMovementSpeed: 6
-  mJumpForce: 30
+  mJumpForce: 25
   mJumpCutMultiplier: 1.5
   mGravityStrength: 60
   mBufferedJumpTime: 0.2
