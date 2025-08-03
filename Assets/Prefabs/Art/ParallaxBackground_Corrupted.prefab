@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4897334582533373649
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 55130013335601104, guid: 575ddef604346f14ca9ac79206e46c10, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 55130013335601104, guid: 575ddef604346f14ca9ac79206e46c10, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 55130013335601104, guid: 575ddef604346f14ca9ac79206e46c10, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 55130013335601104, guid: 575ddef604346f14ca9ac79206e46c10, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 55130013335601104, guid: 575ddef604346f14ca9ac79206e46c10, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 55130013335601104, guid: 575ddef604346f14ca9ac79206e46c10, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 55130013335601104, guid: 575ddef604346f14ca9ac79206e46c10, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 55130013335601104, guid: 575ddef604346f14ca9ac79206e46c10, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 55130013335601104, guid: 575ddef604346f14ca9ac79206e46c10, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 55130013335601104, guid: 575ddef604346f14ca9ac79206e46c10, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1884767369970710201, guid: 575ddef604346f14ca9ac79206e46c10, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 306eb49a0a90f8f41b74dc24c150d530, type: 3}
+    - target: {fileID: 2051661376380065260, guid: 575ddef604346f14ca9ac79206e46c10, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9a808c709a6aa314fa62058ba6774d0f, type: 3}
+    - target: {fileID: 2209585881337387967, guid: 575ddef604346f14ca9ac79206e46c10, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9a3b5a286c7449542ad926f158c58d90, type: 3}
+    - target: {fileID: 3433465819843457998, guid: 575ddef604346f14ca9ac79206e46c10, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 77742e2ede390874fb1f0be50ef6d866, type: 3}
+    - target: {fileID: 3879038827994822157, guid: 575ddef604346f14ca9ac79206e46c10, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d3a517b0bec278e40bce7fb64d3a8233, type: 3}
+    - target: {fileID: 5133208760170921120, guid: 575ddef604346f14ca9ac79206e46c10, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4edb2c8666cb8f34189a52c276f87a56, type: 3}
+    - target: {fileID: 5493506660375886609, guid: 575ddef604346f14ca9ac79206e46c10, type: 3}
+      propertyPath: m_Name
+      value: ParallaxBackground_Corrupted
+      objectReference: {fileID: 0}
+    - target: {fileID: 8560408388024965172, guid: 575ddef604346f14ca9ac79206e46c10, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6d49e5ed27555d544bd6c9227abadd00, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 575ddef604346f14ca9ac79206e46c10, type: 3}
