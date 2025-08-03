@@ -26,9 +26,15 @@ public class CodeSocket : MonoBehaviour
     }
     public void ChangeInteractTextStatus(bool bShouldbeEnabled)
     {
-        if(bHasBeenGlitched)
+        if (bHasBeenGlitched)
         {
+            mInteractText.text = "GLITCHED";
+            mInteractText.enabled = true;
             return;
+        }
+        else
+        {
+            mInteractText.text = "Glitch";
         }
         mInteractText.enabled = bShouldbeEnabled;
     }

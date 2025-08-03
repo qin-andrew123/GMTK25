@@ -43,7 +43,7 @@ public class PlayerAbilities : MonoBehaviour
         }
         else if (useGrabbedObject && !bHasUsedItem && mGrabbedItem != null)
         {
-            mGrabbedItem.UseGrabableObject(Input.mousePosition);
+            mGrabbedItem.UseGrabableObject(Input.mousePosition, mGrabbedItem.gameObject);
         }
     }
 

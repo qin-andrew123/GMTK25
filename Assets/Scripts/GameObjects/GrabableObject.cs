@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class GrabableObject : MonoBehaviour
 {
+    public virtual void UseGrabableObject(Vector3 pixelSpaceMouseInput, GameObject target) { }
     [SerializeField]
-    private TextMeshPro mInteractText;
+    protected TextMeshPro mInteractText;
     [SerializeField]
     private bool bGlitchAudio = false;
-    public virtual void UseGrabableObject(Vector3 pixelSpaceMouseInput) { }
     private void OnEnable()
     {
         StartCoroutine(AddSelfToManager());
@@ -20,7 +20,7 @@ public class GrabableObject : MonoBehaviour
     {
         GlobalVariables.Instance.GrabableObjectManager.RemoveGrabableObject(this);
     }
-    public void ChangeInteractTextStatus(bool bShouldbeEnabled)
+    public virtual void ChangeInteractTextStatus(bool bShouldbeEnabled)
     {
         mInteractText.enabled = bShouldbeEnabled;
     }

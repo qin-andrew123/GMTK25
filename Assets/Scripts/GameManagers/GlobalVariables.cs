@@ -12,6 +12,7 @@ public class GlobalVariables : MonoBehaviour
     [SerializeField] private List<GameObject> mPlatformsToUpdate = new List<GameObject>();
     [SerializeField] private List<GameObject> mSoundBarriersToUpdate = new List<GameObject>();
     [SerializeField] private PlayerMovementData corruptedPlayerMoveData;
+    [SerializeField] private PlayerMovementData normalPlayerMoveData;
     private GameObject mPlayerRef = null;
     public static GlobalVariables Instance;
     private LevelManager mLevelManager;
@@ -90,7 +91,7 @@ public class GlobalVariables : MonoBehaviour
         }
     }
 
-    public void UpdatePhysics()
+    public void UpdatePhysics(bool bEnabled)
     {
         PlayerMovement3D playerMove = mPlayerRef.GetComponent<PlayerMovement3D>();
         if(!playerMove)
@@ -98,6 +99,14 @@ public class GlobalVariables : MonoBehaviour
             return;
         }
 
-        playerMove.mPlayerData = corruptedPlayerMoveData;
+        if(bEnabled)
+        {
+            normalPlayerMoveData = playerMove.mPlayerData;
+            playerMove.mPlayerData = corruptedPlayerMoveData;
+        }
+        else
+        {
+            playerMove.mPlayerData = normalPlayerMoveData;
+        }
     }
 }

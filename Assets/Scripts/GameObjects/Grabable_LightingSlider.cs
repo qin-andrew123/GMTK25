@@ -6,7 +6,7 @@ public class Grabable_LightingSlider : GrabableObject
     private float mGrabbedItemUsedCooldown;
     [SerializeField]
     private float mUseRadius;
-    public override void UseGrabableObject(Vector3 pixelSpaceMouseInput)
+    public override void UseGrabableObject(Vector3 pixelSpaceMouseInput, GameObject target)
     {
         GameObject mDarknessVolume = GlobalVariables.Instance.DarknessVolume;
         if (!mDarknessVolume)

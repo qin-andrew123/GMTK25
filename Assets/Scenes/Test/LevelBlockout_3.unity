@@ -2288,6 +2288,30 @@ PrefabInstance:
       propertyPath: corruptedPlayerMoveData
       value: 
       objectReference: {fileID: 11400000, guid: f0abb194ae2172648a95714c35fd1d13, type: 2}
+    - target: {fileID: 6615303908782867827, guid: 4ea3d191480cafa4da859a39a6b23de2, type: 3}
+      propertyPath: mPlatformsToUpdate.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615303908782867827, guid: 4ea3d191480cafa4da859a39a6b23de2, type: 3}
+      propertyPath: 'mPlatformsToUpdate.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1066915694}
+    - target: {fileID: 6615303908782867827, guid: 4ea3d191480cafa4da859a39a6b23de2, type: 3}
+      propertyPath: 'mPlatformsToUpdate.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1047184401}
+    - target: {fileID: 6615303908782867827, guid: 4ea3d191480cafa4da859a39a6b23de2, type: 3}
+      propertyPath: 'mPlatformsToUpdate.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2068165087}
+    - target: {fileID: 6615303908782867827, guid: 4ea3d191480cafa4da859a39a6b23de2, type: 3}
+      propertyPath: mSoundBarriersToUpdate.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615303908782867827, guid: 4ea3d191480cafa4da859a39a6b23de2, type: 3}
+      propertyPath: 'mSoundBarriersToUpdate.Array.data[0]'
+      value: 
+      objectReference: {fileID: 4310409032297617888}
     - target: {fileID: 7777452720098782058, guid: 4ea3d191480cafa4da859a39a6b23de2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.4067097
@@ -2333,6 +2357,26 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ea3d191480cafa4da859a39a6b23de2, type: 3}
+--- !u!1 &837420037 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2889318920810172388, guid: f10f1aeb15dd98d41a99e9e729d6d262, type: 3}
+  m_PrefabInstance: {fileID: 8523953379332712609}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &837420038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 837420037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d1fc2ea2fc653b43b382b7763841fb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mInteractText: {fileID: 2126786285}
+  bGlitchAudio: 0
+  mUsageCooldown: 0.1
 --- !u!1 &852190629
 GameObject:
   m_ObjectHideFlags: 0
@@ -6494,10 +6538,14 @@ PrefabInstance:
       propertyPath: mInteractText
       value: 
       objectReference: {fileID: 2126786285}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7282613601421775313, guid: f10f1aeb15dd98d41a99e9e729d6d262, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2889318920810172388, guid: f10f1aeb15dd98d41a99e9e729d6d262, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 837420038}
     - targetCorrespondingSourceObject: {fileID: 8776469621121095150, guid: f10f1aeb15dd98d41a99e9e729d6d262, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}

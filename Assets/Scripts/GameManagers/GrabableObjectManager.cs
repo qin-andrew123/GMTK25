@@ -14,8 +14,6 @@ public class GrabableObjectManager : MonoBehaviour
         {
             mPlayerRef = GameObject.FindGameObjectWithTag("Player");
         }
-
-        DontDestroyOnLoad(gameObject);
     }
 
     public void Initialize(float grabbableDistance)

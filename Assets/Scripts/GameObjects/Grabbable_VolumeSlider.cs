@@ -9,7 +9,7 @@ public class Grabbable_VolumeSlider : GrabableObject
     [SerializeField]
     private float mGrabbedItemUsedCooldown;
 
-    public override void UseGrabableObject(Vector3 pixelSpaceMouseInput)
+    public override void UseGrabableObject(Vector3 pixelSpaceMouseInput, GameObject target)
     {
         Vector3 bulletShootDirection = Vector3.right;
         Vector3 startingPosition = mFirePoint.transform.position;

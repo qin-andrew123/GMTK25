@@ -10,7 +10,6 @@ public class LevelManager : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
     }
 
     public void Initialize(Transform startingPosition)
