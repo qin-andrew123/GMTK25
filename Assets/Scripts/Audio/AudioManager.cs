@@ -22,6 +22,9 @@ public class AudioManager : MonoBehaviour
     private int mCurrentGlitchPreset = 0;
     public AudioMixerGroup MusicMixer;
     public AudioMixerGroup SFXMixer;
+    public AudioEvent GlobalDropSFX;
+    public AudioEvent GlobalHurtSFX;
+    public AudioEvent CodeGlitchSFX;
 
     private AudioSource mCodeSource;
     private AudioSource mGameSource;

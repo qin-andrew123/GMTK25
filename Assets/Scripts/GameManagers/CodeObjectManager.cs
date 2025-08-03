@@ -7,7 +7,7 @@ public class CodeObjectManager : MonoBehaviour
     private float mInteractDistance = 5.0f;
     public List<CodeSocket> mManagedObjects;
     private CodeSocket bestCandidate = null;
-
+    
     public void Initialize(float glitchableDistance)
     {
         if (mManagedObjects == null)
@@ -49,6 +49,7 @@ public class CodeObjectManager : MonoBehaviour
             {
                 obj.HasBeenGlitched = true;
                 ModifyEffects(obj.EffectType, true);
+                AudioManager.Instance.CodeGlitchSFX.Play2DSound();
             }
         }
     }

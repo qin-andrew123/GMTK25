@@ -51,6 +51,7 @@ public class Grabbable_Glitch : GrabableObject
         transform.position = !bIsSocketed ? GlobalVariables.Instance.PlayerRef.transform.position : DroppedPosition;
         GlobalVariables.Instance.GrabableObjectManager.AddGrabableObject(this);
         GlobalVariables.Instance.PlayerRef.GetComponent<PlayerAbilities>().GrabbedItem = null;
+        AudioManager.Instance.GlobalDropSFX.Play2DSound();
     }
 
 }
