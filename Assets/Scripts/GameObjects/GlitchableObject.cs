@@ -21,6 +21,7 @@ public class GlitchableObject : MonoBehaviour
     private AudioEvent mTeleportSFX;
 
     private Animator mPlayerAnimator;
+    private bool bIsTeleporting = false;
     void Awake()
     {
         GlobalVariables.Instance.GlitchManager.AddGlitchableObject(this);
@@ -37,14 +38,18 @@ public class GlitchableObject : MonoBehaviour
     }
     public void GlitchEffect()
     {
-        mPlayerAnimator = GlobalVariables.Instance.PlayerRef.GetComponent<Animator>();
-        mPlayerAnimator.SetTrigger("Glitch");
+        if (!bIsTeleporting)
+        {
+            bIsTeleporting = true;
+            mPlayerAnimator = GlobalVariables.Instance.PlayerRef.GetComponent<Animator>();
+            mPlayerAnimator.SetTrigger("Glitch");
 
-        mGlitchVFX.Play();
-        Debug.Log("This is a glitch effect");
+            mGlitchVFX.Play();
+            mTeleportSFX.Play2DSound();
+            Debug.Log("This is a glitch effect");
 
-        StartCoroutine(GlitchTransportDelay());
-
+            StartCoroutine(GlitchTransportDelay());
+        }
     }
 
     private IEnumerator GlitchTransportDelay()
@@ -53,7 +58,6 @@ public class GlitchableObject : MonoBehaviour
 
         GlobalVariables.Instance.LevelManager.MovePlayerToPosition(mLocationToGlitchTo);
         AudioManager.Instance.SetAudioLevelState(mAudioLevelState);
-        mTeleportSFX.Play2DSound();
 
         PlayerMovement3D playerMovement = GlobalVariables.Instance.PlayerRef.gameObject.GetComponent<PlayerMovement3D>();
         if (!playerMovement)
@@ -62,6 +66,6 @@ public class GlitchableObject : MonoBehaviour
             yield break;
         }
         playerMovement.IsDashing = false;
-
+        bIsTeleporting = false;
     }
 }

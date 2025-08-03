@@ -44,6 +44,8 @@ public class PlayerMovement3D : MonoBehaviour
 
     [SerializeField]
     private AudioEvent mJumpSFX;
+    [SerializeField]
+    private AudioEvent mDashSFX;
 
     public Animator mAnimator;
     public SpriteRenderer mSpriteRenderer;
@@ -396,7 +398,7 @@ public class PlayerMovement3D : MonoBehaviour
             mDashDistance = collisionHit.distance - mPlayerData.PlayerCapsuleOffset;
         }
         mCalculatedDashDirection = mRigidbody.position + mDashDirectionalVector * mDashDistance;
-
+        mDashSFX.Play2DSound();
     }
 }
 
