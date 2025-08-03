@@ -9,6 +9,9 @@ public class GrabableObject : MonoBehaviour
     protected TextMeshPro mInteractText;
     [SerializeField]
     private bool bGlitchAudio = false;
+    [SerializeField]
+    private AudioEvent mGrabSFX;
+
     private void OnEnable()
     {
         StartCoroutine(AddSelfToManager());
@@ -34,6 +37,7 @@ public class GrabableObject : MonoBehaviour
         {
             AudioManager.Instance.SetGlitchLevel(1);
         }
+        mGrabSFX?.Play2DSound();
     }
 
     public virtual void DropEffect()
