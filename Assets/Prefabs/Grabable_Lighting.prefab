@@ -96,7 +96,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1059439724523359170}
-  - component: {fileID: 3203166491123483884}
+  - component: {fileID: 6529232243027832798}
   m_Layer: 0
   m_Name: Grabable_Lighting
   m_TagString: Untagged
@@ -122,7 +122,7 @@ Transform:
   - {fileID: 5939680824647617695}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3203166491123483884
+--- !u!114 &6529232243027832798
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,10 +131,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3392529096123393724}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2119f2cd6facc6f4190233f261b3cf5c, type: 3}
+  m_Script: {fileID: 11500000, guid: 74f1e378a2b50c44fae37bc130b283cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mInteractText: {fileID: 6016573762936891876}
+  bGlitchAudio: 0
+  mGrabbedItemUsedCooldown: 1
+  mUseRadius: 5
 --- !u!1 &7800296391124609882
 GameObject:
   m_ObjectHideFlags: 0

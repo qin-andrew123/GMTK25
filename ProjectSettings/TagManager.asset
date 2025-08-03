@@ -28,7 +28,7 @@ TagManager:
   - GlitchableObject
   - ObjectInteractable
   - PlayerBullet
-  - 
+  - HurtLayer
   - 
   - 
   - 

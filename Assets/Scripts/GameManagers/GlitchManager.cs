@@ -8,11 +8,6 @@ public class GlitchManager : MonoBehaviour
     public List<GlitchableObject> mManagedObjects;
     private GlitchableObject bestCandidate = null;
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
-
     public void Initialize(float glitchableDistance)
     {
         if (mManagedObjects == null)

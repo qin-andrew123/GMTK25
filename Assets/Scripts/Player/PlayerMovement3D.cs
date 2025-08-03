@@ -102,7 +102,7 @@ public class PlayerMovement3D : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("GlitchableObject") && (bIsDashing || mDashRecentTime + 0.1f > Time.time ))
+        if (collision.gameObject.CompareTag("GlitchableObject") && (bIsDashing || mDashRecentTime + 0.1f > Time.time))
         {
             Debug.Log("OnCollisionEnter: GlitchableObj");
             GlitchableObject glitchableObject = collision.gameObject.GetComponent<GlitchableObject>();
@@ -158,7 +158,7 @@ public class PlayerMovement3D : MonoBehaviour
 
             mAnimator.SetFloat("Speed", mFrameInput.mInputVector.magnitude);
 
-            
+
             if (mFrameInput.mInputVector.x < 0)
             {
                 mSpriteRenderer.flipX = true;
@@ -213,6 +213,12 @@ public class PlayerMovement3D : MonoBehaviour
         if (hit.collider != null)
         {
             HandleIntersection(hit);
+
+            if (hit.collider.gameObject.layer == 16)
+            {
+                GlobalVariables.Instance.LevelManager.MovePlayerToPosition(GlobalVariables.Instance.StartingPosition);
+                return;
+            }
 
             if (Vector3.Dot(hit.normal, Vector3.up) > 0.5f)
             {
