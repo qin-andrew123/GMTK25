@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 10659689}
   - component: {fileID: 10659688}
   - component: {fileID: 10659687}
+  - component: {fileID: 10659691}
   m_Layer: 0
   m_Name: Glitch Region (10)
   m_TagString: Untagged
@@ -153,7 +154,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -227,6 +228,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1502945454}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &10659691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 10659686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89762bf1c5094d54ba0b646f72455bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPosition: {fileID: 898784953}
 --- !u!1 &19493367
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,6 +565,7 @@ GameObject:
   - component: {fileID: 98459962}
   - component: {fileID: 98459961}
   - component: {fileID: 98459960}
+  - component: {fileID: 98459964}
   m_Layer: 0
   m_Name: Glitch Region (17)
   m_TagString: Untagged
@@ -573,7 +588,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -647,6 +662,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 852190630}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &98459964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98459959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89762bf1c5094d54ba0b646f72455bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPosition: {fileID: 898784953}
 --- !u!1 &252219735
 GameObject:
   m_ObjectHideFlags: 0
@@ -889,6 +917,7 @@ GameObject:
   - component: {fileID: 346564473}
   - component: {fileID: 346564472}
   - component: {fileID: 346564471}
+  - component: {fileID: 346564475}
   m_Layer: 0
   m_Name: Glitch Region (15)
   m_TagString: Untagged
@@ -911,7 +940,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -985,6 +1014,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 993515421}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &346564475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346564470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89762bf1c5094d54ba0b646f72455bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPosition: {fileID: 898784953}
 --- !u!1001 &372471450
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1285,6 +1327,7 @@ GameObject:
   - component: {fileID: 414837476}
   - component: {fileID: 414837475}
   - component: {fileID: 414837474}
+  - component: {fileID: 414837478}
   m_Layer: 0
   m_Name: Glitch Region (13)
   m_TagString: Untagged
@@ -1307,7 +1350,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -1381,6 +1424,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 993515421}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &414837478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414837473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89762bf1c5094d54ba0b646f72455bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPosition: {fileID: 898784953}
 --- !u!1 &429260054
 GameObject:
   m_ObjectHideFlags: 0
@@ -1612,6 +1668,7 @@ GameObject:
   - component: {fileID: 485679610}
   - component: {fileID: 485679609}
   - component: {fileID: 485679608}
+  - component: {fileID: 485679612}
   m_Layer: 0
   m_Name: Glitch Region
   m_TagString: Untagged
@@ -1634,7 +1691,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -1663,7 +1720,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8bbfede15629b8a4abcb44806e4bcd95, type: 2}
+  - {fileID: 2100000, guid: e84411743c1269240b959f53cd456bed, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1708,6 +1765,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 986703492}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &485679612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485679607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89762bf1c5094d54ba0b646f72455bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPosition: {fileID: 898784953}
 --- !u!1 &492999154
 GameObject:
   m_ObjectHideFlags: 0
@@ -1720,6 +1790,7 @@ GameObject:
   - component: {fileID: 492999157}
   - component: {fileID: 492999156}
   - component: {fileID: 492999155}
+  - component: {fileID: 492999159}
   m_Layer: 0
   m_Name: Glitch Region (12)
   m_TagString: Untagged
@@ -1742,7 +1813,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -1816,6 +1887,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 993515421}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &492999159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492999154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89762bf1c5094d54ba0b646f72455bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPosition: {fileID: 898784953}
 --- !u!1 &496289320
 GameObject:
   m_ObjectHideFlags: 0
@@ -1923,11 +2007,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6388033232505731264, guid: 49488fe5793c2204d96fa1442e00ce28, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.01
+      value: 4.69
       objectReference: {fileID: 0}
     - target: {fileID: 6388033232505731264, guid: 49488fe5793c2204d96fa1442e00ce28, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.0000019073486
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6388033232505731264, guid: 49488fe5793c2204d96fa1442e00ce28, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2195,6 +2279,7 @@ GameObject:
   - component: {fileID: 701463738}
   - component: {fileID: 701463737}
   - component: {fileID: 701463736}
+  - component: {fileID: 701463740}
   m_Layer: 0
   m_Name: Glitch Region (4)
   m_TagString: Untagged
@@ -2217,7 +2302,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -2291,6 +2376,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 986703492}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &701463740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701463735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89762bf1c5094d54ba0b646f72455bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPosition: {fileID: 898784953}
 --- !u!1001 &705890081
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3390,6 +3488,7 @@ GameObject:
   - component: {fileID: 948832770}
   - component: {fileID: 948832769}
   - component: {fileID: 948832768}
+  - component: {fileID: 948832772}
   m_Layer: 0
   m_Name: Glitch Region (14)
   m_TagString: Untagged
@@ -3412,7 +3511,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -3486,6 +3585,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 993515421}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &948832772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 948832767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89762bf1c5094d54ba0b646f72455bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPosition: {fileID: 898784953}
 --- !u!1 &957431185
 GameObject:
   m_ObjectHideFlags: 0
@@ -3498,6 +3610,7 @@ GameObject:
   - component: {fileID: 957431189}
   - component: {fileID: 957431188}
   - component: {fileID: 957431187}
+  - component: {fileID: 957431190}
   m_Layer: 12
   m_Name: Cube (3)
   m_TagString: Untagged
@@ -3514,7 +3627,7 @@ Transform:
   m_GameObject: {fileID: 957431185}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 36.08, y: 5.14, z: 0.19}
+  m_LocalPosition: {x: 36.08, y: 4.6, z: 0.19}
   m_LocalScale: {x: 2.7181623, y: 2.6179683, z: 19.782118}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3535,7 +3648,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -3564,7 +3677,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c65a1fa1ca0dd174e8ddd01efddc75a4, type: 2}
+  - {fileID: 2100000, guid: e84411743c1269240b959f53cd456bed, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3594,6 +3707,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 957431185}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &957431190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957431185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89762bf1c5094d54ba0b646f72455bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPosition: {fileID: 0}
 --- !u!1 &979473726
 GameObject:
   m_ObjectHideFlags: 0
@@ -4431,6 +4557,7 @@ GameObject:
   - component: {fileID: 1162131556}
   - component: {fileID: 1162131555}
   - component: {fileID: 1162131554}
+  - component: {fileID: 1162131558}
   m_Layer: 0
   m_Name: Glitch Region (2)
   m_TagString: Untagged
@@ -4453,7 +4580,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -4482,7 +4609,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8bbfede15629b8a4abcb44806e4bcd95, type: 2}
+  - {fileID: 2100000, guid: e84411743c1269240b959f53cd456bed, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4527,6 +4654,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 986703492}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1162131558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162131553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89762bf1c5094d54ba0b646f72455bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPosition: {fileID: 898784953}
 --- !u!1001 &1187349273
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4752,6 +4892,7 @@ GameObject:
   - component: {fileID: 1255906912}
   - component: {fileID: 1255906911}
   - component: {fileID: 1255906910}
+  - component: {fileID: 1255906914}
   m_Layer: 0
   m_Name: Glitch Region (6)
   m_TagString: Untagged
@@ -4774,7 +4915,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -4848,6 +4989,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1502945454}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1255906914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255906909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89762bf1c5094d54ba0b646f72455bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPosition: {fileID: 898784953}
 --- !u!1 &1256875633
 GameObject:
   m_ObjectHideFlags: 0
@@ -5396,6 +5550,7 @@ GameObject:
   - component: {fileID: 1345374715}
   - component: {fileID: 1345374714}
   - component: {fileID: 1345374713}
+  - component: {fileID: 1345374717}
   m_Layer: 0
   m_Name: Glitch Region (7)
   m_TagString: Untagged
@@ -5418,7 +5573,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -5492,6 +5647,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1502945454}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1345374717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1345374712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89762bf1c5094d54ba0b646f72455bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPosition: {fileID: 898784953}
 --- !u!1 &1353382607
 GameObject:
   m_ObjectHideFlags: 0
@@ -5504,6 +5672,7 @@ GameObject:
   - component: {fileID: 1353382611}
   - component: {fileID: 1353382610}
   - component: {fileID: 1353382609}
+  - component: {fileID: 1353382612}
   m_Layer: 12
   m_Name: Cube (4)
   m_TagString: Untagged
@@ -5520,7 +5689,7 @@ Transform:
   m_GameObject: {fileID: 1353382607}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 36.08, y: 3.06, z: 0.19}
+  m_LocalPosition: {x: 36.08, y: 2.21, z: 0.19}
   m_LocalScale: {x: 2.7181623, y: 2.6179683, z: 19.782118}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5541,7 +5710,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -5600,6 +5769,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1353382607}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1353382612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353382607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89762bf1c5094d54ba0b646f72455bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPosition: {fileID: 898784953}
 --- !u!4 &1399653442 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3772156783492337028, guid: bb48d647329e7f948926d2c45a4098b3, type: 3}
@@ -6104,6 +6286,7 @@ GameObject:
   - component: {fileID: 1606344525}
   - component: {fileID: 1606344524}
   - component: {fileID: 1606344523}
+  - component: {fileID: 1606344527}
   m_Layer: 0
   m_Name: Glitch Region (11)
   m_TagString: Untagged
@@ -6126,7 +6309,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -6200,6 +6383,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1502945454}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1606344527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606344522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89762bf1c5094d54ba0b646f72455bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPosition: {fileID: 898784953}
 --- !u!1 &1655683240
 GameObject:
   m_ObjectHideFlags: 0
@@ -6445,6 +6641,7 @@ GameObject:
   - component: {fileID: 1786182341}
   - component: {fileID: 1786182340}
   - component: {fileID: 1786182339}
+  - component: {fileID: 1786182343}
   m_Layer: 0
   m_Name: Glitch Region (3)
   m_TagString: Untagged
@@ -6467,7 +6664,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -6496,7 +6693,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8bbfede15629b8a4abcb44806e4bcd95, type: 2}
+  - {fileID: 2100000, guid: e84411743c1269240b959f53cd456bed, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6541,6 +6738,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 986703492}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1786182343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1786182338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89762bf1c5094d54ba0b646f72455bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPosition: {fileID: 898784953}
 --- !u!4 &1819605681 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3772156783492337028, guid: bb48d647329e7f948926d2c45a4098b3, type: 3}
@@ -6558,6 +6768,7 @@ GameObject:
   - component: {fileID: 1833437714}
   - component: {fileID: 1833437713}
   - component: {fileID: 1833437712}
+  - component: {fileID: 1833437716}
   m_Layer: 0
   m_Name: Glitch Region (8)
   m_TagString: Untagged
@@ -6580,7 +6791,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -6654,6 +6865,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1502945454}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1833437716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833437711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89762bf1c5094d54ba0b646f72455bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPosition: {fileID: 898784953}
 --- !u!1 &1848945171
 GameObject:
   m_ObjectHideFlags: 0
@@ -6842,6 +7066,7 @@ GameObject:
   - component: {fileID: 1920595055}
   - component: {fileID: 1920595054}
   - component: {fileID: 1920595053}
+  - component: {fileID: 1920595057}
   m_Layer: 0
   m_Name: Glitch Region (5)
   m_TagString: Untagged
@@ -6864,7 +7089,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -6938,6 +7163,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 986703492}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1920595057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920595052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89762bf1c5094d54ba0b646f72455bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPosition: {fileID: 898784953}
 --- !u!1001 &1951923716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7258,6 +7496,7 @@ GameObject:
   - component: {fileID: 1988339547}
   - component: {fileID: 1988339546}
   - component: {fileID: 1988339545}
+  - component: {fileID: 1988339549}
   m_Layer: 0
   m_Name: Glitch Region (16)
   m_TagString: Untagged
@@ -7280,7 +7519,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -7354,6 +7593,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 993515421}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1988339549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988339544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89762bf1c5094d54ba0b646f72455bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPosition: {fileID: 898784953}
 --- !u!1 &2051348388
 GameObject:
   m_ObjectHideFlags: 0
@@ -7613,6 +7865,7 @@ GameObject:
   - component: {fileID: 2097527174}
   - component: {fileID: 2097527173}
   - component: {fileID: 2097527172}
+  - component: {fileID: 2097527176}
   m_Layer: 0
   m_Name: Glitch Region (1)
   m_TagString: Untagged
@@ -7635,7 +7888,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -7709,6 +7962,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 986703492}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2097527176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097527171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89762bf1c5094d54ba0b646f72455bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPosition: {fileID: 898784953}
 --- !u!1 &2128345629
 GameObject:
   m_ObjectHideFlags: 0
@@ -7986,6 +8252,7 @@ GameObject:
   - component: {fileID: 2138766303}
   - component: {fileID: 2138766302}
   - component: {fileID: 2138766301}
+  - component: {fileID: 2138766305}
   m_Layer: 0
   m_Name: Glitch Region (9)
   m_TagString: Untagged
@@ -8008,7 +8275,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -8082,6 +8349,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1502945454}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2138766305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138766300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89762bf1c5094d54ba0b646f72455bfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPosition: {fileID: 898784953}
 --- !u!1 &2139262817
 GameObject:
   m_ObjectHideFlags: 0
