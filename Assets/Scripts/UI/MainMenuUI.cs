@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,10 +11,21 @@ public class MainMenuUI : MonoBehaviour
     VideoPlayer mVideoPlayer;
     [SerializeField]
     Button mPlayButton;
-    [SerializeField]
-    TextMeshProUGUI mTextMeshProUGUI;
+    [SerializeField] AudioEvent mGlitchSFX;
 
     bool mHasDisplayedStuff = false;
+
+    private void Start()
+    {
+        StartCoroutine(PlayGlitch());
+    }
+
+    IEnumerator PlayGlitch()
+    {
+        yield return new WaitForSeconds(2f);
+        mGlitchSFX.Play2DSound();
+    }
+
     private void Update()
     {
         if(!mVideoPlayer.isPlaying && !mHasDisplayedStuff)
@@ -26,7 +38,6 @@ public class MainMenuUI : MonoBehaviour
     {
         mHasDisplayedStuff = true;
         mPlayButton.enabled = true;
-        mTextMeshProUGUI.enabled = true;
     }
 
     public void ProceedToNextLevel()

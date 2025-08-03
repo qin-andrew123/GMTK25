@@ -25,7 +25,7 @@ public class LevelCompleteScreenGlitch : MonoBehaviour
         mVolume.gameObject.SetActive(false);
         if(bIsBeginning)
         {
-            mLevelCompleteStinger.Play2DSound();
+            mLevelCompleteStinger?.Play2DSound();
             StartCoroutine(GlitchAndShutdown());
         }
     }
@@ -51,7 +51,7 @@ public class LevelCompleteScreenGlitch : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            mLevelCompleteStinger.Play2DSound();
+            //mLevelCompleteStinger.Play2DSound();
             StartCoroutine(GlitchAndShutdown());
         }
     }
