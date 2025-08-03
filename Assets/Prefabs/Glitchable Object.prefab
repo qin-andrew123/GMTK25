@@ -151,6 +151,7 @@ Transform:
   - {fileID: 2278554526751143242}
   - {fileID: 8633326409652641691}
   - {fileID: 5027227541220354498}
+  - {fileID: 2080353967313380489}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4255719733072328470
@@ -374,7 +375,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '[L Ctrl]'
+  m_text: '[Shift] Glitch'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
