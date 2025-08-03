@@ -17,4 +17,4 @@ MonoBehaviour:
   mPitchOffset: -0.2
   mMinGlitchDelay: 0.1
   mMaxGlitchDelay: 0.3
-  DelayModifier: 0.8
+  DelayModifier: 0.6
