@@ -385,6 +385,7 @@ MonoBehaviour:
   mSceneToLoad: LevelBlockout_2
   mLevelCompleteStinger: {fileID: 11400000, guid: fdee383d3da45dd4db0f0edd4bc6ff3f, type: 2}
   mGlitchSFX: {fileID: 11400000, guid: 004fbe7bd8464ca49a6ec4b406a20120, type: 2}
+  bIsBeginning: 1
 --- !u!4 &22673551
 Transform:
   m_ObjectHideFlags: 0
@@ -561,8 +562,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Level Complete!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: abfd04181a36af04daa91c75bdb5e3da, type: 2}
+  m_sharedMaterial: {fileID: 2799801188242022214, guid: abfd04181a36af04daa91c75bdb5e3da, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
